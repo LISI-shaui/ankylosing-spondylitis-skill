@@ -1,0 +1,76 @@
+name: tests
+
+on:
+  push:
+    branches: [main, develop]
+    paths:
+      - 'scripts/**'
+      - 'data/**'
+      - 'tests/**'
+      - 'requirements.txt'
+      - '.github/workflows/**'
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  test:
+    name: Python ${{ matrix.python-version }} / ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        python-version: ['3.8', '3.9', '3.10', '3.11', '3.12']
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run regression tests
+        env:
+          PYTHONIOENCODING: utf-8
+        run: python tests/test_basic.py
+
+      - name: Smoke test — CLI single-question
+        env:
+          PYTHONIOENCODING: utf-8
+        run: python scripts/answer.py "我刚被诊断为强直性脊柱炎" --format prompt > /dev/null
+        shell: bash
+
+      - name: Smoke test — examples/quick_start.py
+        env:
+          PYTHONIOENCODING: utf-8
+        run: python examples/quick_start.py > /dev/null
+        shell: bash
+
+      - name: Validate KB schemas
+        env:
+          PYTHONIOENCODING: utf-8
+        run: |
+          python -c "
+          import json
+          from pathlib import Path
+          DATA = Path('data')
+          required = ['clinical_kb.json', 'quality_rules.json',
+                      'reviewer_insights.json', 'qa_templates.json',
+                      'attribution_evidence.json', 'intent_codebook.json']
+          for f in required:
+              p = DATA / f
+              assert p.exists(), f'Missing: {f}'
+              d = json.loads(p.read_text(encoding='utf-8'))
+              assert isinstance(d, dict), f'{f} must be dict'
+              print(f'OK {f}: {p.stat().st_size // 1024} KB')
+          "
+        shell: bash

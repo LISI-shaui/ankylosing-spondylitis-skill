@@ -1,0 +1,66 @@
+{
+  "_README": "三层归因（SHAP/LIME/SPA）在 46 题上的真实输出汇总，供 prompt 注入'好回答好在哪'的实证依据",
+  "shap": {
+    "description": "SHAP 模型来源归因：哪个底层 LLM 在哪种受众上贡献最大",
+    "physician_top_contributor": {
+      "deepseek": 15,
+      "kimi": 7,
+      "glm": 1
+    },
+    "patient_top_contributor": {
+      "kimi": 10,
+      "deepseek": 8,
+      "glm": 5
+    },
+    "interpretation": {
+      "physician": "DeepSeek 主导 65% (15/23)，Kimi 30% (7/23)",
+      "patient": "Kimi 主导 43% (10/23)，DeepSeek 35% (8/23)，GLM 22% (5/23)"
+    }
+  },
+  "lime": {
+    "description": "LIME 关键短语：决定优质回答的高频短语模式",
+    "top_phrases": {
+      "ASAS": 26,
+      "生物制剂": 26,
+      "TNF": 14,
+      "骶髂关节": 13,
+      "ASDAS": 12,
+      "BASDAI": 12,
+      "HLA-B27": 11,
+      "NSAIDs": 11,
+      "循证依据": 9,
+      "MRI": 8,
+      "风湿免疫科": 8,
+      "塞来昔布": 4,
+      "IL-17": 3,
+      "阿达木单抗": 3,
+      "硬板床": 1,
+      "英夫利西": 1
+    }
+  },
+  "spa": {
+    "description": "SPA 核心术语：不可替代的医学专业词汇",
+    "top_terms": {
+      "AS": 21,
+      "强直性脊柱炎": 6,
+      "ASAS": 5,
+      "生活": 4,
+      "NSAIDs": 3,
+      "axSpA": 3,
+      "ASDAS": 3,
+      "HLA-B27": 3,
+      "生物制剂": 3,
+      "今天": 3,
+      "年龄": 2,
+      "Rheum": 2,
+      "作为": 2,
+      "定义": 2,
+      "ankylosing": 2,
+      "spondylitis": 2,
+      "风湿": 2,
+      "SpA": 2,
+      "CRP": 2,
+      "BASFI": 2
+    }
+  }
+}

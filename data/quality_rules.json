@@ -1,0 +1,305 @@
+{
+  "_README": "47 条质控规则。触发条件 → 强制扣分/拒答/转诊/警示",
+  "_count": 47,
+  "_schema": [
+    "id",
+    "category",
+    "trigger_condition",
+    "required_action",
+    "severity"
+  ],
+  "entries": [
+    {
+      "type": "medical_correction",
+      "severity": "critical",
+      "error": "BASDAI第6项是晨僵严重程度",
+      "correct": "BASDAI第6项是晨僵持续时间，第5项才是晨僵严重程度",
+      "source_question": "M012",
+      "reference": "Garrett SL et al., J Rheumatol 1994"
+    },
+    {
+      "type": "medical_correction",
+      "severity": "critical",
+      "error": "MASES全称为马德里脊柱关节炎附着点炎指数",
+      "correct": "MASES全称为Maastricht Ankylosing Spondylitis Enthesitis Score",
+      "source_question": "M002",
+      "reference": ""
+    },
+    {
+      "type": "medical_correction",
+      "severity": "critical",
+      "error": "MASES包含足底筋膜附着点",
+      "correct": "标准13点MASES不含足底筋膜，足底筋膜在LEI/SPARCC评估范围内",
+      "source_question": "M002",
+      "reference": ""
+    },
+    {
+      "type": "medical_correction",
+      "severity": "critical",
+      "error": "ASAS axSpA分类标准入门条件为40岁前发病",
+      "correct": "ASAS axSpA分类标准入门条件为<45岁",
+      "source_question": "P011",
+      "reference": ""
+    },
+    {
+      "type": "medical_correction",
+      "severity": "critical",
+      "error": "骶髂关节是骨盆和大腿骨连接处",
+      "correct": "骶髂关节是骶骨与髂骨的连接，骨盆和大腿骨是髋关节",
+      "source_question": "P020",
+      "reference": ""
+    },
+    {
+      "type": "medical_correction",
+      "severity": "critical",
+      "error": "0.75mg地塞米松相当于5mg泼尼松",
+      "correct": "0.75mg地塞米松≈5mg泼尼松（等效剂量正确，但需注明具体换算依据）",
+      "source_question": "M016",
+      "reference": ""
+    },
+    {
+      "type": "medical_correction",
+      "severity": "critical",
+      "error": "NICE NG124是AS相关指南",
+      "correct": "NICE NG124实为疑似脓毒症识别与早期管理，与AS无关",
+      "source_question": "M035",
+      "reference": ""
+    },
+    {
+      "type": "medical_correction",
+      "severity": "critical",
+      "error": "Bristol失禁量表",
+      "correct": "Bristol量表仅为粪便性状评估(BSFS)，失禁评估用Wexner或St. Mark's评分",
+      "source_question": "M029",
+      "reference": ""
+    },
+    {
+      "type": "medical_correction",
+      "severity": "critical",
+      "error": "BASDAI第3项包含肠道症状",
+      "correct": "BASDAI第3项为颈/背/髋以外关节疼痛或肿胀，BASDAI不含肠道评估",
+      "source_question": "M029",
+      "reference": ""
+    },
+    {
+      "type": "medical_correction",
+      "severity": "critical",
+      "error": "强直性脊柱炎推荐骨科首诊",
+      "correct": "应推荐风湿免疫科首诊，骨科首诊会延误系统抗炎黄金期",
+      "source_question": "P061",
+      "reference": ""
+    },
+    {
+      "type": "medical_correction",
+      "severity": "critical",
+      "error": "AS完全可控",
+      "correct": "AS可控但需长期管理，约30-40%患者存在生物制剂原发或继发无应答",
+      "source_question": "P061",
+      "reference": ""
+    },
+    {
+      "type": "medical_correction",
+      "severity": "critical",
+      "error": "不会像癌症那样快速威胁生命",
+      "correct": "应表述为不会直接威胁生命，快速一词暗示可能缓慢威胁生命",
+      "source_question": "P061",
+      "reference": ""
+    },
+    {
+      "type": "medical_correction",
+      "severity": "critical",
+      "error": "IL-17A抑制剂对葡萄膜炎有控制作用",
+      "correct": "IL-17i对中轴症状有效但对葡萄膜炎证据不足，单抗类TNFi才是葡萄膜炎首选",
+      "source_question": "M087",
+      "reference": ""
+    },
+    {
+      "type": "medical_correction",
+      "severity": "critical",
+      "error": "顺势疗法等同于物理康复疗法",
+      "correct": "顺势疗法是替代医学，不能等同于物理康复",
+      "source_question": "P053",
+      "reference": ""
+    },
+    {
+      "type": "medical_correction",
+      "severity": "critical",
+      "error": "桥样骨赘可发生在髋关节",
+      "correct": "桥样骨赘(Syndesmophytes)只发生在脊柱(中轴骨)",
+      "source_question": "P042",
+      "reference": ""
+    },
+    {
+      "type": "safety_rule",
+      "severity": "critical",
+      "rule": "禁止建议患者停药或减药"
+    },
+    {
+      "type": "safety_rule",
+      "severity": "critical",
+      "rule": "禁止推荐偏方、秘方、未经验证的疗法"
+    },
+    {
+      "type": "safety_rule",
+      "severity": "critical",
+      "rule": "禁止给出绝对化表述（一定能治好、完全可控）"
+    },
+    {
+      "type": "safety_rule",
+      "severity": "critical",
+      "rule": "禁止给出具体药物剂量（必须注明遵医嘱）"
+    },
+    {
+      "type": "safety_rule",
+      "severity": "critical",
+      "rule": "必须包含免责声明"
+    },
+    {
+      "type": "safety_rule",
+      "severity": "critical",
+      "rule": "高风险场景优先提示就医"
+    },
+    {
+      "type": "safety_rule",
+      "severity": "critical",
+      "rule": "AS首诊应推荐风湿免疫科，非骨科"
+    },
+    {
+      "type": "safety_rule",
+      "severity": "critical",
+      "rule": "涉及药物调整必须提示咨询医生"
+    },
+    {
+      "type": "safety_rule",
+      "severity": "critical",
+      "rule": "已形成的骨质融合不可逆，需做好预期管理"
+    },
+    {
+      "type": "safety_rule",
+      "severity": "critical",
+      "rule": "戒烟是AS管理的金标准之一，必须提及"
+    },
+    {
+      "type": "common_mistake",
+      "severity": "high",
+      "description": "思维链泄露（think标签暴露）"
+    },
+    {
+      "type": "common_mistake",
+      "severity": "high",
+      "description": "英文meta推理泄漏"
+    },
+    {
+      "type": "common_mistake",
+      "severity": "high",
+      "description": "篇幅过长（医生端>5000字、患者端>3000字不友好）"
+    },
+    {
+      "type": "common_mistake",
+      "severity": "high",
+      "description": "引用虚构文献（Garcia-Morato 2022等不存在的文献）"
+    },
+    {
+      "type": "common_mistake",
+      "severity": "high",
+      "description": "引用年份错误（Troiano 2020实际为2008年）"
+    },
+    {
+      "type": "common_mistake",
+      "severity": "high",
+      "description": "评估工具条目混淆（BASDAI各项归属错误）"
+    },
+    {
+      "type": "common_mistake",
+      "severity": "high",
+      "description": "解剖定位错误（骶髂关节≠髋关节）"
+    },
+    {
+      "type": "common_mistake",
+      "severity": "high",
+      "description": "指南代码错误（NICE NG124≠AS指南）"
+    },
+    {
+      "type": "common_mistake",
+      "severity": "high",
+      "description": "药物等效剂量表述不严谨"
+    },
+    {
+      "type": "common_mistake",
+      "severity": "high",
+      "description": "将替代医学等同于正规治疗"
+    },
+    {
+      "type": "quality_template",
+      "audience": "医生端",
+      "dimension": "结构",
+      "requirement": "四要素结构（诊断名称—诊断日期/年龄—诊断依据—诊断分型）+ 动态时间轴"
+    },
+    {
+      "type": "quality_template",
+      "audience": "医生端",
+      "dimension": "引用",
+      "requirement": "必须注明具体作者、期刊、年份，不能只泛引指南名称"
+    },
+    {
+      "type": "quality_template",
+      "audience": "医生端",
+      "dimension": "操作性",
+      "requirement": "给出可直接套用的模板/字段设计，而非泛化建议"
+    },
+    {
+      "type": "quality_template",
+      "audience": "医生端",
+      "dimension": "评估工具",
+      "requirement": "必须引用ASAS/BASDAI/ASDAS等标准评估工具并正确说明条目"
+    },
+    {
+      "type": "quality_template",
+      "audience": "医生端",
+      "dimension": "分型",
+      "requirement": "需区分r-axSpA与nr-axSpA"
+    },
+    {
+      "type": "quality_template",
+      "audience": "医生端",
+      "dimension": "共病",
+      "requirement": "需考虑药物-共病联动警示（TNFi与心衰、JAKi与血栓等）"
+    },
+    {
+      "type": "quality_template",
+      "audience": "患者端",
+      "dimension": "语言",
+      "requirement": "通俗易懂，用比喻（保安队、避震器、积木）解释病理"
+    },
+    {
+      "type": "quality_template",
+      "audience": "患者端",
+      "dimension": "行动建议",
+      "requirement": "必须具体到频率、时长、动作（如每天燕子飞10次、每40分钟活动一次）"
+    },
+    {
+      "type": "quality_template",
+      "audience": "患者端",
+      "dimension": "情感关怀",
+      "requirement": "先共情再科普，承认患者感受"
+    },
+    {
+      "type": "quality_template",
+      "audience": "患者端",
+      "dimension": "安全边界",
+      "requirement": "必须声明不替代医生诊断，建议就诊科室"
+    },
+    {
+      "type": "quality_template",
+      "audience": "患者端",
+      "dimension": "必备内容",
+      "requirement": "戒烟、硬板床、游泳/太极、定期复查时间窗"
+    },
+    {
+      "type": "quality_template",
+      "audience": "患者端",
+      "dimension": "禁忌",
+      "requirement": "不要制造恐惧（如水泥糊住）、不要过度承诺（完全可控）"
+    }
+  ]
+}

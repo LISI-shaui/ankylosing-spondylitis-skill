@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+.Python
+*.egg-info/
+.venv/
+venv/
+env/
+
+# 数据准备脚本（开发用，发布时已生成 data/）
+scripts/_prepare_data.py
+
+# IDE
+.idea/
+.vscode/
+*.swp
+.DS_Store
+
+# 日志与缓存
+*.log
+*.cache
+.pytest_cache/
+
+# 不要把 API key 提交！
+.env
+*.key
+.deepseek_key
+.mimo_key
+.openai_key
+.anthropic_key

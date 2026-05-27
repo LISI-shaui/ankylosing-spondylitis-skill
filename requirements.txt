@@ -1,0 +1,2 @@
+# AS Skill 依赖（极简，无 GPU、无 BERT）
+jieba>=0.42.1
