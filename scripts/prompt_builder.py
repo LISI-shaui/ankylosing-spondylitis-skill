@@ -173,13 +173,13 @@ def build_system_prompt(question, intent, retrieved_kb, retrieved_rules,
         top_phrases = lime.get("top_phrases", {})
         if top_phrases:
             top_lime = list(top_phrases.items())[:8]
-            lines.append(f"  LIME 高频金句词（应自然融入）：" +
+            lines.append("  LIME 高频金句词（应自然融入）：" +
                          "、".join(f"{p}({c})" for p, c in top_lime))
         # SPA 核心术语
         top_terms = spa.get("top_terms", {})
         if top_terms:
             top_spa = list(top_terms.items())[:8]
-            lines.append(f"  SPA 核心术语（不可省略）：" +
+            lines.append("  SPA 核心术语（不可省略）：" +
                          "、".join(f"{t}({c})" for t, c in top_spa))
         lines.append("")
 

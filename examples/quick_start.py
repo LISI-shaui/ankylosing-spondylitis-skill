@@ -3,7 +3,6 @@
 
 跑法：cd ankylosing-spondylitis-skill && python examples/quick_start.py
 """
-import json
 import sys
 from pathlib import Path
 
@@ -24,7 +23,7 @@ def demo_patient_question():
     out = agent.answer("我刚被诊断为强直性脊柱炎，需要了解什么？")
 
     intent = out["intent"]
-    print(f"\n[意图识别]")
+    print("\n[意图识别]")
     print(f"  模块: {intent['module']} ({intent['module_name']})")
     print(f"  维度: {intent['dimension']} ({intent['dimension_name']})")
     print(f"  受众: {intent['audience']}")
@@ -40,14 +39,14 @@ def demo_patient_question():
     for r in out["triggered_rules"][:3]:
         print(f"  · {r.get('rule', r.get('trigger_condition', ''))[:100]}")
 
-    print(f"\n[三层归因证据摘要]")
+    print("\n[三层归因证据摘要]")
     a = out["attribution_summary"]
     print(f"  SHAP 主导（{intent['audience']} 题）: {a['shap_top']}")
     print(f"  LIME 高频金句词: {list(a['lime_top_phrases'].keys())[:5]}")
     print(f"  SPA 核心术语: {list(a['spa_top_terms'].keys())[:5]}")
 
     print(f"\n[完整 system prompt 长度: {len(out['system_prompt'])} 字]")
-    print(f"  前 300 字预览:")
+    print("  前 300 字预览:")
     print("  " + out["system_prompt"][:300].replace("\n", "\n  ") + "...")
 
 
@@ -69,7 +68,7 @@ def demo_physician_question():
         print(f"  {i}. {kb.get('title', '?')[:60]}")
         # 医生题显示 professional_content
         content = kb.get("professional_content") or kb.get("content", "")
-        print(f"     " + content[:120].replace("\n", " ") + "...")
+        print("     " + content[:120].replace("\n", " ") + "...")
 
 
 def demo_safety_gate():
@@ -108,11 +107,11 @@ def demo_save_prompt():
     output_file.write_text(out["system_prompt"], encoding="utf-8")
 
     print(f"\n[已保存] {output_file}")
-    print(f"  现在你可以把这个 prompt 喂给任何 LLM：")
-    print(f"  $ openai api chat.completions.create \\")
-    print(f"      -m gpt-4o-mini \\")
+    print("  现在你可以把这个 prompt 喂给任何 LLM：")
+    print("  $ openai api chat.completions.create \\")
+    print("      -m gpt-4o-mini \\")
     print(f"      --system \"$(cat {output_file.name})\" \\")
-    print(f"      --user \"AS 患者怀孕期间能用阿达木单抗吗？\"")
+    print("      --user \"AS 患者怀孕期间能用阿达木单抗吗？\"")
 
 
 if __name__ == "__main__":

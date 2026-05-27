@@ -66,7 +66,8 @@ def test_safety_gate():
     print("\n[Test 3] 安全闸门触发")
     agent = ASAgent()
     out = agent.answer("顺势疗法能治好我的强直性脊柱炎吗")
-    passed = 0; n = 2
+    passed = 0
+    n = 2
     passed += assert_true(len(out["triggered_rules"]) > 0,
                           f"顺势疗法问题触发 ≥1 条规则（实际 {len(out['triggered_rules'])}）")
     rule_texts = " ".join(json.dumps(r, ensure_ascii=False)
@@ -84,7 +85,8 @@ def test_audience_adaptation():
     out_p = agent.answer("我刚被诊断 AS，特别害怕")
     # 医生用语
     out_d = agent.answer("AS 患者使用 TNFi 后葡萄膜炎复发率与 IL-17i 对比")
-    passed = 0; n = 2
+    passed = 0
+    n = 2
     passed += assert_true(out_p["intent"]["audience"] == "patient",
                           f"患者用语 → audience=patient（实际 {out_p['intent']['audience']}）")
     passed += assert_true(out_d["intent"]["audience"] == "physician",
@@ -96,7 +98,8 @@ def test_attribution_injection():
     print("\n[Test 5] 三层归因证据注入")
     agent = ASAgent()
     out = agent.answer("AS 患者的核心治疗目标是什么")
-    passed = 0; n = 3
+    passed = 0
+    n = 3
     passed += assert_true("SHAP" in out["system_prompt"], "SHAP 证据已注入")
     passed += assert_true("LIME" in out["system_prompt"], "LIME 证据已注入")
     passed += assert_true("SPA" in out["system_prompt"], "SPA 证据已注入")

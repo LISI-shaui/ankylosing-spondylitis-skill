@@ -3,7 +3,6 @@
 基于关键词词典 + 启发规则，无需 LLM 调用。
 """
 import json
-import re
 from pathlib import Path
 
 DATA_DIR = Path(__file__).resolve().parent.parent / "data"

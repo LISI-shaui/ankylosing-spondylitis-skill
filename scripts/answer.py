@@ -18,7 +18,7 @@ from pathlib import Path
 SCRIPT_DIR = Path(__file__).resolve().parent
 sys.path.insert(0, str(SCRIPT_DIR))
 
-from retrieval import TfIdfIndex, tokenize
+from retrieval import TfIdfIndex
 from intent_recognition import recognize_intent
 from prompt_builder import build_system_prompt
 
