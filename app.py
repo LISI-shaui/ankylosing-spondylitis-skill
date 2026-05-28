@@ -149,13 +149,13 @@ def _check_budget():
 
 
 def _call_deepseek(system_prompt: str, question: str) -> tuple[str, int]:
-    """返回 (answer_text, tokens_used)"""
+    """返回 (answer_text, tokens_used)。只缓存完整回答。"""
     if not client:
         return "_(未配置 DeepSeek API key — 仅展示 Skill 输出。)_", 0
     cache_key = hashlib.md5((question + system_prompt[:200]).encode()).hexdigest()
     with _cache_lock:
         if cache_key in _cache:
-            return _cache[cache_key] + "\n\n_(💾 缓存命中，未额外调用 API)_", 0
+            return _cache[cache_key], 0
     try:
         resp = client.chat.completions.create(
             model=MODEL,
@@ -163,18 +163,22 @@ def _call_deepseek(system_prompt: str, question: str) -> tuple[str, int]:
                 {"role": "system", "content": system_prompt},
                 {"role": "user", "content": question},
             ],
-            max_tokens=1200,
+            max_tokens=2500,
             temperature=0.3,
-            timeout=45,
+            timeout=60,
         )
         text = resp.choices[0].message.content or ""
+        finish = resp.choices[0].finish_reason
         usage = resp.usage
         total_tokens = (usage.prompt_tokens + usage.completion_tokens) if usage else 0
-        with _cache_lock:
-            _cache[cache_key] = text
-            # 缓存最多 200 条
-            if len(_cache) > 200:
-                _cache.pop(next(iter(_cache)))
+        if finish == "length":
+            text = text + "\n\n_⚠️ 回答较长被截断，建议追问具体细节。_"
+        # 只缓存完整回答；截断/出错的不缓存，下次重试
+        if finish == "stop":
+            with _cache_lock:
+                _cache[cache_key] = text
+                if len(_cache) > 200:
+                    _cache.pop(next(iter(_cache)))
         return text, total_tokens
     except Exception as e:
         return f"⚠️ DeepSeek 调用失败：`{type(e).__name__}: {str(e)[:200]}`", 0
@@ -311,24 +315,16 @@ with gr.Blocks(title=TITLE) as demo:
                     answer_out = gr.Markdown(
                         value="_(点上面例子或自己提问开始)_",
                     )
-                with gr.Tab("🎯 意图识别"):
-                    intent_out = gr.Markdown()
-                with gr.Tab("📚 检索到的 KB"):
-                    kb_out = gr.Markdown()
-                with gr.Tab("🛡️ 安全规则"):
-                    rules_out = gr.Markdown()
-                with gr.Tab("🔬 三层归因"):
-                    att_out = gr.Markdown()
                 with gr.Tab("📡 PubMed 实时检索"):
                     pubmed_out = gr.Markdown(
                         value="_(提问后这里显示从 PubMed 拉到的最近 3 年文献)_"
                     )
-                with gr.Tab("📜 完整 system prompt"):
-                    prompt_out = gr.Textbox(
-                        label="（这是注入到 DeepSeek 的 system prompt）",
-                        lines=20,
-                        max_lines=50,
-                    )
+            # 后端依旧计算下面这些，但 UI 不显示（保留管线完整）
+            intent_out = gr.Markdown(visible=False)
+            kb_out = gr.Markdown(visible=False)
+            rules_out = gr.Markdown(visible=False)
+            att_out = gr.Markdown(visible=False)
+            prompt_out = gr.Textbox(visible=False)
 
     submit.click(
         handle,
