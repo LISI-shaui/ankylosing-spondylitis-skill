@@ -255,7 +255,7 @@ HEADER = f"""
 
 
 # ─────────────────────────── UI ───────────────────────────
-with gr.Blocks(title=TITLE, theme=gr.themes.Soft()) as demo:
+with gr.Blocks(title=TITLE) as demo:
     gr.Markdown(HEADER)
     gr.Markdown(DISCLAIMER)
 
@@ -301,7 +301,6 @@ with gr.Blocks(title=TITLE, theme=gr.themes.Soft()) as demo:
                         label="（这是注入到 DeepSeek 的 system prompt）",
                         lines=20,
                         max_lines=50,
-                        show_copy_button=True,
                     )
 
     submit.click(
@@ -325,4 +324,5 @@ if __name__ == "__main__":
         server_port=int(os.environ.get("PORT", "7860")),
         share=False,
         show_error=True,
+        theme=gr.themes.Soft(),
     )
