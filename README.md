@@ -13,6 +13,20 @@
 
 ---
 
+## 🚀 在线体验
+
+| 平台 | 链接 |
+|---|---|
+| 🌐 Hugging Face Spaces（海外/4G 网络） | https://huggingface.co/spaces/Silll1/as-skill-demo |
+| 🇨🇳 ModelScope（国内/微信可扫） | https://modelscope.cn/studios/Lsz267/as-skill-demo |
+
+模型：**DeepSeek V4 Pro** + AS Skill 三层归因 + 📡 PubMed 实时检索增强
+
+> 演示由作者临时开放，单会话最多 10 次提问；展示期外可能临时关闭。
+> ⚠️ 演示输出**不构成医疗建议**，仅展示方法学，AS 相关健康问题请前往**风湿免疫科**就诊。
+
+---
+
 ## 🎯 它解决什么
 
 通用大语言模型（ChatGPT / DeepSeek / Qwen / Grok）回答强直性脊柱炎（AS）问题时存在三大缺陷：
