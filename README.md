@@ -8,9 +8,9 @@
 ![License](https://img.shields.io/badge/license-MIT-blue)
 ![Python](https://img.shields.io/badge/python-3.8+-blue)
 ![Status](https://img.shields.io/badge/status-research-orange)
-[![HF Spaces](https://img.shields.io/badge/🤗_Try_Live-Hugging_Face-yellow)](https://huggingface.co/spaces/LISI-shaui/as-skill-demo)
+[![HF Spaces](https://img.shields.io/badge/🤗_Try_Live-Hugging_Face-yellow)](https://huggingface.co/spaces/Silll1/as-skill-demo)
 
-> 📰 **[v1.0.0 Release Notes →](RELEASE.md)**  ·  🚀 **[Live Demo →](https://huggingface.co/spaces/LISI-shaui/as-skill-demo)**  ·  📦 **[部署指南 →](docs/DEPLOY.md)**  ·  🤝 **[贡献指南 →](CONTRIBUTING.md)**
+> 📰 **[v1.0.0 Release Notes →](RELEASE.md)**  ·  🚀 **[Live Demo →](https://huggingface.co/spaces/Silll1/as-skill-demo)**  ·  📦 **[部署指南 →](docs/DEPLOY.md)**  ·  🤝 **[贡献指南 →](CONTRIBUTING.md)**
 
 ---
 
@@ -18,7 +18,7 @@
 
 | 方式 | 链接 |
 |---|---|
-| 网页 | https://huggingface.co/spaces/LISI-shaui/as-skill-demo |
+| 网页 | https://huggingface.co/spaces/Silll1/as-skill-demo |
 | 扫码 | ![QR](docs/qr-demo.png) |
 | 模型 | DeepSeek V4 Pro + AS Skill 三层归因增强 |
 

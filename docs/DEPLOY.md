@@ -44,7 +44,7 @@
 1. 打开 https://huggingface.co/new-space
 2. 填写：
    - **Owner**：选你自己（`LISI-shaui`）
-   - **Space name**：`as-skill-demo`（决定 URL：`huggingface.co/spaces/LISI-shaui/as-skill-demo`）
+   - **Space name**：`as-skill-demo`（决定 URL：`huggingface.co/spaces/Silll1/as-skill-demo`）
    - **License**：MIT
    - **Select the Space SDK**：选 **Gradio**
    - **Space hardware**：CPU basic（free 档够用）
@@ -59,7 +59,7 @@
 
 ```bash
 # 在本机 clone 你的 HF Space
-git clone https://huggingface.co/spaces/LISI-shaui/as-skill-demo
+git clone https://huggingface.co/spaces/Silll1/as-skill-demo
 cd as-skill-demo
 
 # 把 GitHub 仓库里的关键文件全拷过来
@@ -120,7 +120,7 @@ push 完毕，HF 会自动开始 build（看 Space 页面的 "Building" 状态�
 
 ### Step 4：验证
 
-打开 `https://huggingface.co/spaces/LISI-shaui/as-skill-demo` —— 应该看到 Gradio 界面：
+打开 `https://huggingface.co/spaces/Silll1/as-skill-demo` —— 应该看到 Gradio 界面：
 - 左边输入框 + 示例题
 - 右边 6 个 tab（回答 / 意图 / KB / 安全规则 / 三层归因 / system prompt）
 - 点示例 "我刚被诊断为强直性脊柱炎..." → 点 "🚀 让 AS Skill 回答" → 等 5-10 秒 → 看到完整回答
@@ -166,7 +166,7 @@ push 完毕，HF 会自动开始 build（看 Space 页面的 "Building" 状态�
 
 ```bash
 # 在本地跑（一次性）
-python scripts/gen_qr.py https://huggingface.co/spaces/LISI-shaui/as-skill-demo
+python scripts/gen_qr.py https://huggingface.co/spaces/Silll1/as-skill-demo
 ```
 
 生成 `docs/qr-demo.png`。打印或投到 PPT 上即可。

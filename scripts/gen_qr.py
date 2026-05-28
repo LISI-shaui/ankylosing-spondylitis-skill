@@ -3,7 +3,7 @@
 
 跑法：
     pip install qrcode[pil]
-    python scripts/gen_qr.py https://huggingface.co/spaces/LISI-shaui/as-skill-demo
+    python scripts/gen_qr.py https://huggingface.co/spaces/Silll1/as-skill-demo
 
 输出：docs/qr-demo.png + 控制台打印 ASCII 版本（即时预览）
 """
@@ -16,7 +16,7 @@ if hasattr(sys.stdout, "reconfigure"):
     except Exception:
         pass
 
-DEFAULT_URL = "https://huggingface.co/spaces/LISI-shaui/as-skill-demo"
+DEFAULT_URL = "https://huggingface.co/spaces/Silll1/as-skill-demo"
 
 ROOT = Path(__file__).resolve().parent.parent
 OUT_PATH = ROOT / "docs" / "qr-demo.png"
