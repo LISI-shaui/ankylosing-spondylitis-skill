@@ -106,6 +106,40 @@ def test_attribution_injection():
     return passed, n
 
 
+def test_tcm_kb_retrieval():
+    print("\n[Test 6] 中西医结合知识库检索（v1.1+）")
+    agent = ASAgent(top_k_kb=8)
+    passed = 0
+    n = 4
+    # TCM 方剂题：应召回 tcm_kb 条目
+    out = agent.answer("AS 患者用独活寄生汤有效吗")
+    kb_ids = [e.get("id", "") for e in out["retrieved_kb"]]
+    passed += assert_true(
+        any(eid.startswith(("tcm-", "int-")) for eid in kb_ids),
+        f"独活寄生汤题召回 ≥1 条中医 entry（实际 ids: {kb_ids[:3]}）")
+    # 雷公藤生育毒性题：召回 tcm-005 或触发安全规则
+    out = agent.answer("我打算要孩子，能用雷公藤多苷片吗")
+    kb_ids = [e.get("id", "") for e in out["retrieved_kb"]]
+    has_tcm = any(eid.startswith(("tcm-", "int-")) for eid in kb_ids)
+    has_rule = len(out["triggered_rules"]) > 0
+    passed += assert_true(
+        has_tcm or has_rule,
+        f"雷公藤生育题 → 中医 entry 或安全规则触发（tcm={has_tcm} rule={has_rule}）")
+    # 督灸题：召回 tcm-007
+    out = agent.answer("督灸治疗 AS 有效吗")
+    kb_ids = [e.get("id", "") for e in out["retrieved_kb"]]
+    passed += assert_true(
+        any(eid.startswith(("tcm-", "int-")) for eid in kb_ids),
+        f"督灸题召回 ≥1 条中医 entry（实际 ids: {kb_ids[:3]}）")
+    # 不污染西医题：纯西医题不应被中医条目挤掉
+    out = agent.answer("AS 的诊断标准是什么")
+    kb_ids = [e.get("id", "") for e in out["retrieved_kb"][:3]]
+    passed += assert_true(
+        any(eid.startswith("DX") for eid in kb_ids),
+        f"纯西医诊断题 top-3 含西医 DX entry（实际 ids: {kb_ids}）")
+    return passed, n
+
+
 def main():
     print("=" * 60)
     print("AS Skill 回归测试")
@@ -113,7 +147,7 @@ def main():
     total_passed = total = 0
     for fn in [test_intent_recognition, test_kb_retrieval,
                test_safety_gate, test_audience_adaptation,
-               test_attribution_injection]:
+               test_attribution_injection, test_tcm_kb_retrieval]:
         p, n = fn()
         total_passed += p
         total += n

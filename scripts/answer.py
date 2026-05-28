@@ -37,6 +37,12 @@ class ASAgent:
         # 加载所有数据
         self.codebook = self._load("intent_codebook.json")
         self.kb = self._load("clinical_kb.json").get("entries", [])
+        # 中西医结合知识库（v1.1+）：若文件存在则合并到主 KB，参与同一索引
+        tcm_entries = self._load("tcm_kb.json").get("entries", [])
+        if tcm_entries:
+            self.kb.extend(tcm_entries)
+        # 过滤掉标记为 _deprecated 的 entry（v1.0 占位条目，待补内容）
+        self.kb = [e for e in self.kb if not e.get("_deprecated")]
         self.rules = self._load("quality_rules.json").get("entries", [])
         self.insights = self._load("reviewer_insights.json").get("entries", [])
         self.qa_templates = self._load("qa_templates.json").get("entries", [])
@@ -74,6 +80,8 @@ class ASAgent:
     def _filter_by_intent(self, entries, intent):
         """按意图软过滤：同模块的优先匹配，其他保留参与排序。
         全 True 表示不过滤；通过 boost 实现"优先同模块"由 TF-IDF 排序保证。
+        若匹配数 < top_k_kb，回退到不过滤，让 TF-IDF 跨模块排序，
+        避免单一匹配条目独霸结果。
         """
         mod = intent["module"]
         mask = []
@@ -81,8 +89,8 @@ class ASAgent:
             m = e.get("module") or e.get("module_code") or ""
             module_ok = (m == mod) or (str(m).startswith(mod)) or (not m)
             mask.append(bool(module_ok))
-        # 若全 False（一个匹配模块都没有），退回全 True
-        if not any(mask):
+        # 匹配数不足 top_k_kb 时退回全 True，让 TF-IDF 在更大池里排序
+        if sum(mask) < self.top_k_kb:
             mask = [True] * len(entries)
         return mask
 

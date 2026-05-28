@@ -1,5 +1,5 @@
 {
-  "_README": "67 条 AS 临床循证标尺，来源 ASAS-EULAR 2022 / ACR/SPARTAN 2019 / 各 AS 共识",
+  "_README": "67 条 AS 临床循证标尺 (含 17 条 v1.0 占位 entry 已标记 _deprecated)。来源 ASAS-EULAR 2022 / ACR/SPARTAN 2019 / 各 AS 共识。 v1.0.1 维护：非 A-J module 重映射 (FAQ/EMG/MYTH/SPCL 等 → A-J)，空内容 entry 加 _deprecated 标记 (ASAgent 加载时跳过)。",
   "_count": 67,
   "_schema": [
     "id",
@@ -278,146 +278,158 @@
     {
       "id": "FAQ_001",
       "title": "强直性脊柱炎会遗传吗",
-      "module": "FAQ",
-      "module_name": "常见问题",
+      "module": "J",
+      "module_name": "健康教育",
       "year": "2016",
       "evidence_level": "系统综述",
       "source": "Brown MA et al., Nat Rev Rheumatol 2016;12:81-91",
       "professional_content": "AS有明显的遗传倾向，但不是单基因遗传病。HLA-B27是最主要的遗传风险因素。\n\n数据：AS患者中HLA-B27阳性率约90%；普通人群约6-8%；HLA-B27阳性一级亲属患AS风险约10-20%；同卵双胞胎同患率约63%；总体遗传度>90%。HLA-B27阳性者中仅5-6%最终发展为AS。",
       "patient_content": "AS有遗传倾向，但不是说父母有孩子就一定会有。HLA-B27阳性的人得AS的概率也只有5-6%。",
-      "search_text": "强直性脊柱炎会遗传吗 AS有明显的遗传倾向，但不是单基因遗传病。HLA-B27是最主要的遗传风险因素。\n\n数据：AS患者中HLA-B27阳性率约90%；普通人群约6-8%；HLA-B27阳性一级亲属患AS风险约10-20%；同卵双胞胎同患率约63%；总体遗传度>90%。HLA-B27阳性者中仅5-6%最终发展为AS。 AS有遗传倾向，但不是说父母有孩子就一定会有。HLA-B27阳性的人得AS的概率也只有5-6%。"
+      "search_text": "强直性脊柱炎会遗传吗 AS有明显的遗传倾向，但不是单基因遗传病。HLA-B27是最主要的遗传风险因素。\n\n数据：AS患者中HLA-B27阳性率约90%；普通人群约6-8%；HLA-B27阳性一级亲属患AS风险约10-20%；同卵双胞胎同患率约63%；总体遗传度>90%。HLA-B27阳性者中仅5-6%最终发展为AS。 AS有遗传倾向，但不是说父母有孩子就一定会有。HLA-B27阳性的人得AS的概率也只有5-6%。",
+      "_legacy_module": "FAQ"
     },
     {
       "id": "FAQ_002",
       "title": "AS患者能生育吗",
-      "module": "FAQ",
-      "module_name": "常见问题",
+      "module": "J",
+      "module_name": "健康教育",
       "year": "2020",
       "evidence_level": "ACR指南",
       "source": "Sammaritano LR et al., Arthritis Rheumatol 2020;72:529-555",
       "professional_content": "AS本身不影响生育能力。药物影响：\n女性-NSAIDs孕晚期禁用；甲氨蝶呤绝对禁忌（停药3月后可孕）；TNFi中培塞利珠单抗妊娠期首选；IL-17i数据有限建议停药。\n男性-柳氮磺吡啶可能降低精子质量（可逆）；甲氨蝶呤建议停药3月后备孕；TNFi对男性生育无明显影响。",
       "patient_content": "AS本身不影响生育。关键是调整用药：甲氨蝶呤必须停药3个月以上才能怀孕；培塞利珠单抗是孕期最安全的生物制剂。计划怀孕前一定和医生商量。",
-      "search_text": "AS患者能生育吗 AS本身不影响生育能力。药物影响：\n女性-NSAIDs孕晚期禁用；甲氨蝶呤绝对禁忌（停药3月后可孕）；TNFi中培塞利珠单抗妊娠期首选；IL-17i数据有限建议停药。\n男性-柳氮磺吡啶可能降低精子质量（可逆）；甲氨蝶呤建议停药3月后备孕；TNFi对男性生育无明显影响。 AS本身不影响生育。关键是调整用药：甲氨蝶呤必须停药3个月以上才能怀孕；培塞利珠单抗是孕期最安全的生物制剂。计划怀孕前一定和医生商量。"
+      "search_text": "AS患者能生育吗 AS本身不影响生育能力。药物影响：\n女性-NSAIDs孕晚期禁用；甲氨蝶呤绝对禁忌（停药3月后可孕）；TNFi中培塞利珠单抗妊娠期首选；IL-17i数据有限建议停药。\n男性-柳氮磺吡啶可能降低精子质量（可逆）；甲氨蝶呤建议停药3月后备孕；TNFi对男性生育无明显影响。 AS本身不影响生育。关键是调整用药：甲氨蝶呤必须停药3个月以上才能怀孕；培塞利珠单抗是孕期最安全的生物制剂。计划怀孕前一定和医生商量。",
+      "_legacy_module": "FAQ"
     },
     {
       "id": "FAQ_003",
       "title": "AS患者适合什么运动",
-      "module": "FAQ",
-      "module_name": "常见问题",
+      "module": "J",
+      "module_name": "健康教育",
       "year": "2023",
       "evidence_level": "强推荐",
       "source": "ASAS/EULAR 2022; Dagfinrud H et al., J Rheumatol 2011",
       "professional_content": "ASAS/EULAR强推荐运动作为axSpA管理核心。\n推荐：1.监督下物理治疗（证据最充分）2.水中运动（游泳、水中体操）3.家庭锻炼 4.有氧运动（快走、骑车）\n频率：每周>=5次，每次30分钟\n内容：脊柱活动度训练、胸廓扩张训练、姿势矫正、核心强化\n避免：高冲击运动（脊柱已融合者）、长时间同一姿势、过度负重",
       "patient_content": "运动和吃药一样重要！推荐游泳、瑜伽、快走，每周至少5次每次30分钟。重点是伸展脊柱、扩大胸廓、强化核心。避免剧烈对抗运动。",
-      "search_text": "AS患者适合什么运动 ASAS/EULAR强推荐运动作为axSpA管理核心。\n推荐：1.监督下物理治疗（证据最充分）2.水中运动（游泳、水中体操）3.家庭锻炼 4.有氧运动（快走、骑车）\n频率：每周>=5次，每次30分钟\n内容：脊柱活动度训练、胸廓扩张训练、姿势矫正、核心强化\n避免：高冲击运动（脊柱已融合者）、长时间同一姿势、过度负重 运动和吃药一样重要！推荐游泳、瑜伽、快走，每周至少5次每次30分钟。重点是伸展脊柱、扩大胸廓、强化核心。避免剧烈对抗运动。"
+      "search_text": "AS患者适合什么运动 ASAS/EULAR强推荐运动作为axSpA管理核心。\n推荐：1.监督下物理治疗（证据最充分）2.水中运动（游泳、水中体操）3.家庭锻炼 4.有氧运动（快走、骑车）\n频率：每周>=5次，每次30分钟\n内容：脊柱活动度训练、胸廓扩张训练、姿势矫正、核心强化\n避免：高冲击运动（脊柱已融合者）、长时间同一姿势、过度负重 运动和吃药一样重要！推荐游泳、瑜伽、快走，每周至少5次每次30分钟。重点是伸展脊柱、扩大胸廓、强化核心。避免剧烈对抗运动。",
+      "_legacy_module": "FAQ"
     },
     {
       "id": "FAQ_004",
       "title": "AS能根治吗/预后如何",
-      "module": "FAQ",
-      "module_name": "常见问题",
+      "module": "J",
+      "module_name": "健康教育",
       "year": "2014",
       "evidence_level": "系统综述",
       "source": "Braun J et al., Lancet 2007; Poddubnyy D et al., Ann Rheum Dis 2014",
       "professional_content": "目前无法根治，但可有效控制。\n长期预后：约25-30%患者10-15年后出现明显功能受限；约10-20%最终需脊柱融合手术；生物制剂时代预后显著改善。\n不良预后因素：延迟诊断（平均5-7年）、年轻发病、基线高活动度、合并外周关节炎、CRP持续升高、吸烟。\n死亡率：SMR约1.1-1.5，主要死因为心血管疾病。",
       "patient_content": "AS目前不能根治，但可以控制得很好。生物制剂出现后大多数人能正常生活工作。关键是早发现早治疗，戒烟、坚持运动、规律用药。",
-      "search_text": "AS能根治吗/预后如何 目前无法根治，但可有效控制。\n长期预后：约25-30%患者10-15年后出现明显功能受限；约10-20%最终需脊柱融合手术；生物制剂时代预后显著改善。\n不良预后因素：延迟诊断（平均5-7年）、年轻发病、基线高活动度、合并外周关节炎、CRP持续升高、吸烟。\n死亡率：SMR约1.1-1.5，主要死因为心血管疾病。 AS目前不能根治，但可以控制得很好。生物制剂出现后大多数人能正常生活工作。关键是早发现早治疗，戒烟、坚持运动、规律用药。"
+      "search_text": "AS能根治吗/预后如何 目前无法根治，但可有效控制。\n长期预后：约25-30%患者10-15年后出现明显功能受限；约10-20%最终需脊柱融合手术；生物制剂时代预后显著改善。\n不良预后因素：延迟诊断（平均5-7年）、年轻发病、基线高活动度、合并外周关节炎、CRP持续升高、吸烟。\n死亡率：SMR约1.1-1.5，主要死因为心血管疾病。 AS目前不能根治，但可以控制得很好。生物制剂出现后大多数人能正常生活工作。关键是早发现早治疗，戒烟、坚持运动、规律用药。",
+      "_legacy_module": "FAQ"
     },
     {
       "id": "FAQ_005",
       "title": "生物制剂患者须知",
-      "module": "FAQ",
-      "module_name": "常见问题",
+      "module": "J",
+      "module_name": "健康教育",
       "year": "2023",
       "evidence_level": "循证指南",
       "source": "ASAS/EULAR 2022",
       "professional_content": "两大类：\n1.TNF抑制剂（TNFi）：阿达木单抗、英夫利昔单抗、依那西普等，皮下注射（每2周-月）或静脉输液\n2.IL-17抑制剂：司库奇尤单抗、依奇珠单抗，皮下注射（每2-4周）\n常见副作用：注射部位反应、感染风险增加\n用药前必查：结核、乙肝、丙肝、HIV、血常规、肝肾功能\n用药期间：避免活疫苗、出现发热及时就医、每3-6月复查",
       "patient_content": "生物制剂是打针的药，比消炎药更强，专门针对免疫系统中导致炎症的分子。打之前要查结核、乙肝等，打的时候注意别感染。大部分人效果很好。",
-      "search_text": "生物制剂患者须知 两大类：\n1.TNF抑制剂（TNFi）：阿达木单抗、英夫利昔单抗、依那西普等，皮下注射（每2周-月）或静脉输液\n2.IL-17抑制剂：司库奇尤单抗、依奇珠单抗，皮下注射（每2-4周）\n常见副作用：注射部位反应、感染风险增加\n用药前必查：结核、乙肝、丙肝、HIV、血常规、肝肾功能\n用药期间：避免活疫苗、出现发热及时就医、每3-6月复查 生物制剂是打针的药，比消炎药更强，专门针对免疫系统中导致炎症的分子。打之前要查结核、乙肝等，打的时候注意别感染。大部分人效果很好。"
+      "search_text": "生物制剂患者须知 两大类：\n1.TNF抑制剂（TNFi）：阿达木单抗、英夫利昔单抗、依那西普等，皮下注射（每2周-月）或静脉输液\n2.IL-17抑制剂：司库奇尤单抗、依奇珠单抗，皮下注射（每2-4周）\n常见副作用：注射部位反应、感染风险增加\n用药前必查：结核、乙肝、丙肝、HIV、血常规、肝肾功能\n用药期间：避免活疫苗、出现发热及时就医、每3-6月复查 生物制剂是打针的药，比消炎药更强，专门针对免疫系统中导致炎症的分子。打之前要查结核、乙肝等，打的时候注意别感染。大部分人效果很好。",
+      "_legacy_module": "FAQ"
     },
     {
       "id": "FAQ_006",
       "title": "AS什么时候需要手术",
-      "module": "FAQ",
-      "module_name": "常见问题",
+      "module": "J",
+      "module_name": "健康教育",
       "year": "2023",
       "evidence_level": "指南推荐",
       "source": "ASAS/EULAR 2022; Kilbourne BA et al., Curr Opin Rheumatol 2019",
       "professional_content": "手术指征：\n1.全髋关节置换（最常见）：严重髋关节破坏、疼痛、功能受限，约30-50%AS患者最终需要\n2.脊柱截骨矫形：严重驼背导致功能/外观严重受限，风险较高\n3.脊柱骨折固定：AS患者脊柱脆性增加，轻微外伤即可骨折\n手术效果：髋关节置换满意率>90%；脊柱矫形可改善外观但风险大",
       "patient_content": "最常见的手术是髋关节置换，效果很好（满意率>90%）。脊柱截骨术治严重驼背但风险大。AS患者脊柱较脆，摔倒后容易骨折需紧急就医。",
-      "search_text": "AS什么时候需要手术 手术指征：\n1.全髋关节置换（最常见）：严重髋关节破坏、疼痛、功能受限，约30-50%AS患者最终需要\n2.脊柱截骨矫形：严重驼背导致功能/外观严重受限，风险较高\n3.脊柱骨折固定：AS患者脊柱脆性增加，轻微外伤即可骨折\n手术效果：髋关节置换满意率>90%；脊柱矫形可改善外观但风险大 最常见的手术是髋关节置换，效果很好（满意率>90%）。脊柱截骨术治严重驼背但风险大。AS患者脊柱较脆，摔倒后容易骨折需紧急就医。"
+      "search_text": "AS什么时候需要手术 手术指征：\n1.全髋关节置换（最常见）：严重髋关节破坏、疼痛、功能受限，约30-50%AS患者最终需要\n2.脊柱截骨矫形：严重驼背导致功能/外观严重受限，风险较高\n3.脊柱骨折固定：AS患者脊柱脆性增加，轻微外伤即可骨折\n手术效果：髋关节置换满意率>90%；脊柱矫形可改善外观但风险大 最常见的手术是髋关节置换，效果很好（满意率>90%）。脊柱截骨术治严重驼背但风险大。AS患者脊柱较脆，摔倒后容易骨折需紧急就医。",
+      "_legacy_module": "FAQ"
     },
     {
       "id": "FAQ_007",
       "title": "AS患者饮食建议",
-      "module": "FAQ",
-      "module_name": "常见问题",
+      "module": "J",
+      "module_name": "健康教育",
       "year": "2018",
       "evidence_level": "系统综述",
       "source": "Philippou E, Nutrients 2018;10(5):621; ASAS/EULAR 2022",
       "professional_content": "没有特定饮食能治愈AS。建议：\n1.地中海饮食模式（多蔬果、全谷物、鱼类、橄榄油）\n2.补钙1000-1200mg/日+维生素D 800-1000IU/日（防骨质疏松）\n3.戒烟（最重要的可改变风险因素）\n4.限酒（NSAIDs+饮酒增加胃肠道风险）\n5.保持健康体重",
       "patient_content": "没有食物能治AS。多吃蔬菜水果鱼类，少吃红肉加工食品。最重要是戒烟。注意补钙和维生素D预防骨质疏松。",
-      "search_text": "AS患者饮食建议 没有特定饮食能治愈AS。建议：\n1.地中海饮食模式（多蔬果、全谷物、鱼类、橄榄油）\n2.补钙1000-1200mg/日+维生素D 800-1000IU/日（防骨质疏松）\n3.戒烟（最重要的可改变风险因素）\n4.限酒（NSAIDs+饮酒增加胃肠道风险）\n5.保持健康体重 没有食物能治AS。多吃蔬菜水果鱼类，少吃红肉加工食品。最重要是戒烟。注意补钙和维生素D预防骨质疏松。"
+      "search_text": "AS患者饮食建议 没有特定饮食能治愈AS。建议：\n1.地中海饮食模式（多蔬果、全谷物、鱼类、橄榄油）\n2.补钙1000-1200mg/日+维生素D 800-1000IU/日（防骨质疏松）\n3.戒烟（最重要的可改变风险因素）\n4.限酒（NSAIDs+饮酒增加胃肠道风险）\n5.保持健康体重 没有食物能治AS。多吃蔬菜水果鱼类，少吃红肉加工食品。最重要是戒烟。注意补钙和维生素D预防骨质疏松。",
+      "_legacy_module": "FAQ"
     },
     {
       "id": "FAQ_008",
       "title": "AS患者能否用中医/替代疗法",
-      "module": "FAQ",
-      "module_name": "常见问题",
+      "module": "J",
+      "module_name": "健康教育",
       "year": "2023",
       "evidence_level": "循证指南",
       "source": "ASAS/EULAR 2022; Cramer H et al., Rheumatology 2013",
       "professional_content": "循证角度：针灸-有限证据可能缓解疼痛；太极/瑜伽-有证据改善功能；中药-缺乏高质量RCT，部分有肝肾毒性；顺势疗法-无科学证据。\nASAS/EULAR立场：运动疗法（含瑜伽太极）可作辅助，不能替代核心治疗（NSAIDs/bDMARDs）",
       "patient_content": "瑜伽太极可以辅助，针灸可能缓解疼痛但证据不够强，中药没有高质量研究证明有效且可能伤肝肾。不管用什么替代疗法，都不能停正规药物。",
-      "search_text": "AS患者能否用中医/替代疗法 循证角度：针灸-有限证据可能缓解疼痛；太极/瑜伽-有证据改善功能；中药-缺乏高质量RCT，部分有肝肾毒性；顺势疗法-无科学证据。\nASAS/EULAR立场：运动疗法（含瑜伽太极）可作辅助，不能替代核心治疗（NSAIDs/bDMARDs） 瑜伽太极可以辅助，针灸可能缓解疼痛但证据不够强，中药没有高质量研究证明有效且可能伤肝肾。不管用什么替代疗法，都不能停正规药物。"
+      "search_text": "AS患者能否用中医/替代疗法 循证角度：针灸-有限证据可能缓解疼痛；太极/瑜伽-有证据改善功能；中药-缺乏高质量RCT，部分有肝肾毒性；顺势疗法-无科学证据。\nASAS/EULAR立场：运动疗法（含瑜伽太极）可作辅助，不能替代核心治疗（NSAIDs/bDMARDs） 瑜伽太极可以辅助，针灸可能缓解疼痛但证据不够强，中药没有高质量研究证明有效且可能伤肝肾。不管用什么替代疗法，都不能停正规药物。",
+      "_legacy_module": "FAQ"
     },
     {
       "id": "EMG_001",
       "title": "急性前葡萄膜炎",
-      "module": "EMG",
-      "module_name": "急症处理",
+      "module": "I",
+      "module_name": "特殊人群",
       "year": "2017",
       "evidence_level": "系统综述",
       "source": "Braun J et al., Ann Rheum Dis 2017;76:970-976",
       "professional_content": "AS患者急性前葡萄膜炎发生率约25-40%，表现为突发眼红、眼痛、畏光、视力下降。HLA-B27阳性患者风险更高。需眼科急诊处理，24小时内就诊。治疗：局部糖皮质激素+散瞳剂，反复发作者考虑更换bDMARDs（TNFi优于IL-17i预防葡萄膜炎复发）。",
       "patient_content": "如果你突然出现眼睛发红、疼痛、怕光、看东西模糊，这是AS引起的眼睛发炎（葡萄膜炎），必须在24小时内去看眼科急诊。这不是普通的红眼，拖延可能影响视力。平时用生物制剂（特别是TNF抑制剂类的）可以减少发作次数。",
-      "search_text": "急性前葡萄膜炎 AS患者急性前葡萄膜炎发生率约25-40%，表现为突发眼红、眼痛、畏光、视力下降。HLA-B27阳性患者风险更高。需眼科急诊处理，24小时内就诊。治疗：局部糖皮质激素+散瞳剂，反复发作者考虑更换bDMARDs（TNFi优于IL-17i预防葡萄膜炎复发）。 如果你突然出现眼睛发红、疼痛、怕光、看东西模糊，这是AS引起的眼睛发炎（葡萄膜炎），必须在24小时内去看眼科急诊。这不是普通的红眼，拖延可能影响视力。平时用生物制剂（特别是TNF抑制剂类的）可以减少发作次数。"
+      "search_text": "急性前葡萄膜炎 AS患者急性前葡萄膜炎发生率约25-40%，表现为突发眼红、眼痛、畏光、视力下降。HLA-B27阳性患者风险更高。需眼科急诊处理，24小时内就诊。治疗：局部糖皮质激素+散瞳剂，反复发作者考虑更换bDMARDs（TNFi优于IL-17i预防葡萄膜炎复发）。 如果你突然出现眼睛发红、疼痛、怕光、看东西模糊，这是AS引起的眼睛发炎（葡萄膜炎），必须在24小时内去看眼科急诊。这不是普通的红眼，拖延可能影响视力。平时用生物制剂（特别是TNF抑制剂类的）可以减少发作次数。",
+      "_legacy_module": "EMG"
     },
     {
       "id": "EMG_002",
       "title": "马尾综合征",
-      "module": "EMG",
-      "module_name": "急症处理",
+      "module": "I",
+      "module_name": "特殊人群",
       "year": "2023",
       "evidence_level": "专家共识",
       "source": "ASAS/EULAR 2022, Ramiro S et al., Ann Rheum Dis 2023;82:19-34",
       "professional_content": "马尾综合征是AS罕见但严重的并发症，由严重椎管狭窄压迫马尾神经引起。症状：会阴部麻木/感觉异常、大小便功能障碍（尿潴留或失禁）、下肢肌力下降。需急诊MRI确认+急诊手术减压。延迟处理可导致永久性神经功能损害。",
       "patient_content": "如果你出现屁股周围麻木、大小便控制不住、腿突然没力气，这是紧急情况！可能是脊柱里的神经被压到了，必须马上去急诊。这种情况很少见，但一旦出现不能等。",
-      "search_text": "马尾综合征 马尾综合征是AS罕见但严重的并发症，由严重椎管狭窄压迫马尾神经引起。症状：会阴部麻木/感觉异常、大小便功能障碍（尿潴留或失禁）、下肢肌力下降。需急诊MRI确认+急诊手术减压。延迟处理可导致永久性神经功能损害。 如果你出现屁股周围麻木、大小便控制不住、腿突然没力气，这是紧急情况！可能是脊柱里的神经被压到了，必须马上去急诊。这种情况很少见，但一旦出现不能等。"
+      "search_text": "马尾综合征 马尾综合征是AS罕见但严重的并发症，由严重椎管狭窄压迫马尾神经引起。症状：会阴部麻木/感觉异常、大小便功能障碍（尿潴留或失禁）、下肢肌力下降。需急诊MRI确认+急诊手术减压。延迟处理可导致永久性神经功能损害。 如果你出现屁股周围麻木、大小便控制不住、腿突然没力气，这是紧急情况！可能是脊柱里的神经被压到了，必须马上去急诊。这种情况很少见，但一旦出现不能等。",
+      "_legacy_module": "EMG"
     },
     {
       "id": "EMG_003",
       "title": "脊柱骨折风险",
-      "module": "EMG",
-      "module_name": "急症处理",
+      "module": "I",
+      "module_name": "特殊人群",
       "year": "2006",
       "evidence_level": "队列研究",
       "source": "Feldtkeller E et al., Rheumatology 2006;45:1335-1339",
       "professional_content": "AS患者脊柱骨折风险是普通人群的4-7倍，即使轻微外伤也可发生。因脊柱僵硬+骨质疏松，骨折常为不稳定型，可累及三柱。典型表现：外伤后新发剧烈背痛、活动明显受限。处理：立即制动、颈椎/胸腰椎CT+MRI、脊柱外科会诊。禁忌：不要随意搬动或扭转身躯。",
       "patient_content": "AS患者的脊柱因为长期发炎变得又硬又脆，比普通人更容易骨折。如果摔了一跤或被撞了一下之后背痛突然加重、动不了，千万不要自己乱动，叫120急救，告诉医生你有AS。",
-      "search_text": "脊柱骨折风险 AS患者脊柱骨折风险是普通人群的4-7倍，即使轻微外伤也可发生。因脊柱僵硬+骨质疏松，骨折常为不稳定型，可累及三柱。典型表现：外伤后新发剧烈背痛、活动明显受限。处理：立即制动、颈椎/胸腰椎CT+MRI、脊柱外科会诊。禁忌：不要随意搬动或扭转身躯。 AS患者的脊柱因为长期发炎变得又硬又脆，比普通人更容易骨折。如果摔了一跤或被撞了一下之后背痛突然加重、动不了，千万不要自己乱动，叫120急救，告诉医生你有AS。"
+      "search_text": "脊柱骨折风险 AS患者脊柱骨折风险是普通人群的4-7倍，即使轻微外伤也可发生。因脊柱僵硬+骨质疏松，骨折常为不稳定型，可累及三柱。典型表现：外伤后新发剧烈背痛、活动明显受限。处理：立即制动、颈椎/胸腰椎CT+MRI、脊柱外科会诊。禁忌：不要随意搬动或扭转身躯。 AS患者的脊柱因为长期发炎变得又硬又脆，比普通人更容易骨折。如果摔了一跤或被撞了一下之后背痛突然加重、动不了，千万不要自己乱动，叫120急救，告诉医生你有AS。",
+      "_legacy_module": "EMG"
     },
     {
       "id": "EMG_004",
       "title": "用药期间严重感染",
-      "module": "EMG",
-      "module_name": "急症处理",
+      "module": "I",
+      "module_name": "特殊人群",
       "year": "2023",
       "evidence_level": "循证指南（强推荐）",
       "source": "ASAS/EULAR 2022, Ramiro S et al., Ann Rheum Dis 2023;82:19-34",
       "professional_content": "使用bDMARDs/tsDMARDs期间出现发热>38.5°C需立即停药并排查感染。用药前必须筛查：乙肝(HBsAg/anti-HBc)、丙肝、HIV、结核(PPD/IGRA+胸片)。潜伏结核需预防性抗结核治疗至少1个月后方可启用bDMARDs。活动性感染为绝对禁忌。",
       "patient_content": "如果你在用生物制剂期间发烧超过38.5度，先把药停了，马上去医院查是不是感染了。用这类药之前医生应该已经给你查过乙肝、结核等，如果没查过要提醒医生。这不是小事，感染可能很严重。",
-      "search_text": "用药期间严重感染 使用bDMARDs/tsDMARDs期间出现发热>38.5°C需立即停药并排查感染。用药前必须筛查：乙肝(HBsAg/anti-HBc)、丙肝、HIV、结核(PPD/IGRA+胸片)。潜伏结核需预防性抗结核治疗至少1个月后方可启用bDMARDs。活动性感染为绝对禁忌。 如果你在用生物制剂期间发烧超过38.5度，先把药停了，马上去医院查是不是感染了。用这类药之前医生应该已经给你查过乙肝、结核等，如果没查过要提醒医生。这不是小事，感染可能很严重。"
+      "search_text": "用药期间严重感染 使用bDMARDs/tsDMARDs期间出现发热>38.5°C需立即停药并排查感染。用药前必须筛查：乙肝(HBsAg/anti-HBc)、丙肝、HIV、结核(PPD/IGRA+胸片)。潜伏结核需预防性抗结核治疗至少1个月后方可启用bDMARDs。活动性感染为绝对禁忌。 如果你在用生物制剂期间发烧超过38.5度，先把药停了，马上去医院查是不是感染了。用这类药之前医生应该已经给你查过乙肝、结核等，如果没查过要提醒医生。这不是小事，感染可能很严重。",
+      "_legacy_module": "EMG"
     },
     {
       "id": "EX_001",
@@ -446,14 +458,15 @@
     {
       "id": "MYTH_001",
       "title": "常见错误认知纠正",
-      "module": "MYTH",
-      "module_name": "错误纠正",
+      "module": "J",
+      "module_name": "健康教育",
       "year": "2023",
       "evidence_level": "循证指南+患者教育共识",
       "source": "综合ASAS/EULAR 2022及患者教育资源",
       "professional_content": "需纠正的常见错误认知：\n1. \"AS能根治\"：目前无法根治，但规范治疗（NSAIDs+bDMARDs+运动）可使大多数患者达到临床缓解，维持正常工作生活。\n2. \"偏方/中药能替代西药\"：无高质量RCT证据支持偏方替代标准治疗。自行停药换偏方可能导致疾病进展、脊柱强直。\n3. \"不痛就不用吃药\"：NSAIDs可按需使用，但bDMARDs需持续使用。停药复发率高达50-80%（多项RCT数据）。\n4. \"生物制剂会上瘾/依赖\"：不会成瘾。bDMARDs是靶向抑制炎症因子，停药后药效消失是因为疾病本身而非\"戒断\"。\n5. \"AS患者不能运动\"：恰恰相反，运动是治疗核心。游泳、瑜伽、伸展操均有循证支持。\n6. \"AS会遗传给下一代\"：HLA-B27阳性者后代患AS风险约10-20%，非100%遗传。即使携带HLA-B27也不一定发病。",
       "patient_content": "- AS目前治不好，但能控制得很好，大多数人可以正常生活工作\n- 偏方没有科学证据，不要拿自己的脊柱冒险\n- 不痛了也要按医生说的用药，擅自停药容易复发\n- 生物制剂不会上瘾，它是控制炎症的药\n- 运动是最好的\"药\"之一，不是越休息越好\n- AS有遗传倾向但不是100%传给孩子，不用过度担心",
-      "search_text": "常见错误认知纠正 需纠正的常见错误认知：\n1. \"AS能根治\"：目前无法根治，但规范治疗（NSAIDs+bDMARDs+运动）可使大多数患者达到临床缓解，维持正常工作生活。\n2. \"偏方/中药能替代西药\"：无高质量RCT证据支持偏方替代标准治疗。自行停药换偏方可能导致疾病进展、脊柱强直。\n3. \"不痛就不用吃药\"：NSAIDs可按需使用，但bDMARDs需持续使用。停药复发率高达50-80%（多项RCT数据）。\n4 - AS目前治不好，但能控制得很好，大多数人可以正常生活工作\n- 偏方没有科学证据，不要拿自己的脊柱冒险\n- 不痛了也要按医生说的用药，擅自停药容易复发\n- 生物制剂不会上瘾，它是控制炎症的药\n- 运动是最好的\"药\"之一，不是越休息越好\n- AS有遗传倾向但不是100%传给孩子，不用过度担心"
+      "search_text": "常见错误认知纠正 需纠正的常见错误认知：\n1. \"AS能根治\"：目前无法根治，但规范治疗（NSAIDs+bDMARDs+运动）可使大多数患者达到临床缓解，维持正常工作生活。\n2. \"偏方/中药能替代西药\"：无高质量RCT证据支持偏方替代标准治疗。自行停药换偏方可能导致疾病进展、脊柱强直。\n3. \"不痛就不用吃药\"：NSAIDs可按需使用，但bDMARDs需持续使用。停药复发率高达50-80%（多项RCT数据）。\n4 - AS目前治不好，但能控制得很好，大多数人可以正常生活工作\n- 偏方没有科学证据，不要拿自己的脊柱冒险\n- 不痛了也要按医生说的用药，擅自停药容易复发\n- 生物制剂不会上瘾，它是控制炎症的药\n- 运动是最好的\"药\"之一，不是越休息越好\n- AS有遗传倾向但不是100%传给孩子，不用过度担心",
+      "_legacy_module": "MYTH"
     },
     {
       "id": "TX_008",
@@ -602,98 +615,120 @@
     {
       "id": "SPCL_001",
       "title": "妊娠期AS管理",
-      "module": "SPCL",
-      "module_name": "特殊管理",
+      "module": "I",
+      "module_name": "特殊人群",
       "year": "2025",
       "evidence_level": "系统综述/叙述性综述",
       "source": "Chin A et al., Arthritis Care Res 2025;77:1273-1281 / Klavdianou K et al., Rheumatology 2026",
       "professional_content": "AS患者妊娠管理要点（18部指南综合）：\n1. 孕前：疾病稳定≥3-6个月再计划妊娠；停用致畸药物（甲氨蝶呤停≥3个月，JAKi停≥1个月）\n2. 妊娠期：约25%患者会复发（PMID:40869517）；TNFi可在孕中期继续使用（adalimumab, certolizumab为B类）；IL-17i和JAKi缺乏妊娠数据，建议停用\n3. 哺乳期：TNFi可在哺乳期使用（乳汁中浓度极低）\n4. 男性患者：甲氨蝶呤和柳氮磺吡啶可能影响精子质量，建议备孕前3个月停用；TNFi和IL-17i对男性生育无显著影响",
       "patient_content": "女性AS患者可以正常怀孕生宝宝，但需要提前规划。要点：1)病情稳定半年以上再怀孕；2)怀孕前要停甲氨蝶呤至少3个月；3)有些生物制剂（阿达木单抗、培塞利尤单抗）在怀孕中期可以继续用；4)IL-17抑制剂和JAK抑制剂怀孕期间要停用；5)男性患者备孕时甲氨蝶呤和柳氮磺吡啶要停，但生物制剂不影响生育。所有调整都必须在医生指导下进行。",
-      "search_text": "妊娠期AS管理 AS患者妊娠管理要点（18部指南综合）：\n1. 孕前：疾病稳定≥3-6个月再计划妊娠；停用致畸药物（甲氨蝶呤停≥3个月，JAKi停≥1个月）\n2. 妊娠期：约25%患者会复发（PMID:40869517）；TNFi可在孕中期继续使用（adalimumab, certolizumab为B类）；IL-17i和JAKi缺乏妊娠数据，建议停用\n3. 哺乳期：TNFi可在哺乳期使用（乳汁中浓度极低）\n4.  女性AS患者可以正常怀孕生宝宝，但需要提前规划。要点：1)病情稳定半年以上再怀孕；2)怀孕前要停甲氨蝶呤至少3个月；3)有些生物制剂（阿达木单抗、培塞利尤单抗）在怀孕中期可以继续用；4)IL-17抑制剂和JAK抑制剂怀孕期间要停用；5)男性患者备孕时甲氨蝶呤和柳氮磺吡啶要停，但生物制剂不影响生育。所有调整都必须在医生指导下进行。"
+      "search_text": "妊娠期AS管理 AS患者妊娠管理要点（18部指南综合）：\n1. 孕前：疾病稳定≥3-6个月再计划妊娠；停用致畸药物（甲氨蝶呤停≥3个月，JAKi停≥1个月）\n2. 妊娠期：约25%患者会复发（PMID:40869517）；TNFi可在孕中期继续使用（adalimumab, certolizumab为B类）；IL-17i和JAKi缺乏妊娠数据，建议停用\n3. 哺乳期：TNFi可在哺乳期使用（乳汁中浓度极低）\n4.  女性AS患者可以正常怀孕生宝宝，但需要提前规划。要点：1)病情稳定半年以上再怀孕；2)怀孕前要停甲氨蝶呤至少3个月；3)有些生物制剂（阿达木单抗、培塞利尤单抗）在怀孕中期可以继续用；4)IL-17抑制剂和JAK抑制剂怀孕期间要停用；5)男性患者备孕时甲氨蝶呤和柳氮磺吡啶要停，但生物制剂不影响生育。所有调整都必须在医生指导下进行。",
+      "_legacy_module": "SPCL"
     },
     {
       "id": "EVB_001",
       "title": "长期持续NSAIDs vs 按需使用对AS影像学进展的影响",
-      "module": "EVB",
-      "module_name": "循证证据",
+      "module": "F",
+      "module_name": "循证决策",
       "year": "",
       "evidence_level": "1B（单项RCT）",
       "source": "Wanders A, van der Heijde D, Landewé R, et al. Nonsteroidal antiinflammatory drugs reduce radiographic progression in patients with ankylosing spondylitis: a randomized clinical trial. Arthritis Rheum. 2005;52(6):1756-1765.",
       "professional_content": "",
       "patient_content": "",
-      "search_text": "长期持续NSAIDs vs 按需使用对AS影像学进展的影响  "
+      "search_text": "长期持续NSAIDs vs 按需使用对AS影像学进展的影响  ",
+      "_deprecated": true,
+      "_deprecation_reason": "v1.0 placeholder, content not filled; title preserved as backlog",
+      "_legacy_module": "EVB"
     },
     {
       "id": "EVB_002",
       "title": "NSAIDs联合抗TNF治疗 vs 单独抗TNF治疗对脊柱结构损伤的影响（CONSUL试验）",
-      "module": "EVB",
-      "module_name": "循证证据",
+      "module": "F",
+      "module_name": "循证决策",
       "year": "",
       "evidence_level": "1B（单项RCT）",
       "source": "Proft F, Torgutalp M, Muche B, et al. Comparison of the effect of treatment with NSAIDs added to anti-TNF therapy versus anti-TNF therapy alone on the progression of structural damage in the spine over 2 years in patients with radiographic axial spondyloarthritis from the randomised-controlled CONSUL trial. Ann Rheum Dis. 2024;83(5):599-607.",
       "professional_content": "",
       "patient_content": "",
-      "search_text": "NSAIDs联合抗TNF治疗 vs 单独抗TNF治疗对脊柱结构损伤的影响（CONSUL试验）  "
+      "search_text": "NSAIDs联合抗TNF治疗 vs 单独抗TNF治疗对脊柱结构损伤的影响（CONSUL试验）  ",
+      "_deprecated": true,
+      "_deprecation_reason": "v1.0 placeholder, content not filled; title preserved as backlog",
+      "_legacy_module": "EVB"
     },
     {
       "id": "EVB_003",
       "title": "Secukinumab vs Adalimumab生物类似药对放射学进展的头对头比较（SURPASS试验）",
-      "module": "EVB",
-      "module_name": "循证证据",
+      "module": "F",
+      "module_name": "循证决策",
       "year": "",
       "evidence_level": "1B（单项头对头RCT）",
       "source": "Baraliakos X, Østergaard M, Poddubnyy D, et al. Effect of Secukinumab Versus Adalimumab Biosimilar on Radiographic Progression in Patients With Radiographic Axial Spondyloarthritis: Results From a Head-to-Head Randomized Phase IIIb Study. Arthritis Rheumatol. 2024;76(8):1278-1287.",
       "professional_content": "",
       "patient_content": "",
-      "search_text": "Secukinumab vs Adalimumab生物类似药对放射学进展的头对头比较（SURPASS试验）  "
+      "search_text": "Secukinumab vs Adalimumab生物类似药对放射学进展的头对头比较（SURPASS试验）  ",
+      "_deprecated": true,
+      "_deprecation_reason": "v1.0 placeholder, content not filled; title preserved as backlog",
+      "_legacy_module": "EVB"
     },
     {
       "id": "EVB_004",
       "title": "Upadacitinib治疗活动性AS的疗效与安全性（SELECT-AXIS 1）",
-      "module": "EVB",
-      "module_name": "循证证据",
+      "module": "F",
+      "module_name": "循证决策",
       "year": "",
       "evidence_level": "1B（单项RCT）",
       "source": "van der Heijde D, Song IH, Pangan AL, et al. Efficacy and safety of upadacitinib in patients with active ankylosing spondylitis (SELECT-AXIS 1): a multicentre, randomised, double-blind, placebo-controlled, phase 2/3 trial. Lancet. 2019;394(10214):2108-2117.",
       "professional_content": "",
       "patient_content": "",
-      "search_text": "Upadacitinib治疗活动性AS的疗效与安全性（SELECT-AXIS 1）  "
+      "search_text": "Upadacitinib治疗活动性AS的疗效与安全性（SELECT-AXIS 1）  ",
+      "_deprecated": true,
+      "_deprecation_reason": "v1.0 placeholder, content not filled; title preserved as backlog",
+      "_legacy_module": "EVB"
     },
     {
       "id": "EVB_005",
       "title": "Upadacitinib治疗生物制剂经治AS患者的疗效（SELECT-AXIS 3）",
-      "module": "EVB",
-      "module_name": "循证证据",
+      "module": "F",
+      "module_name": "循证决策",
       "year": "",
       "evidence_level": "1B（单项RCT）",
       "source": "van der Heijde D, Baraliakos X, Sieper J, et al. Efficacy and safety of upadacitinib for active ankylosing spondylitis refractory to biological therapy: a double-blind, randomised, placebo-controlled phase 3 trial. Ann Rheum Dis. 2022;81(11):1515-1523.",
       "professional_content": "",
       "patient_content": "",
-      "search_text": "Upadacitinib治疗生物制剂经治AS患者的疗效（SELECT-AXIS 3）  "
+      "search_text": "Upadacitinib治疗生物制剂经治AS患者的疗效（SELECT-AXIS 3）  ",
+      "_deprecated": true,
+      "_deprecation_reason": "v1.0 placeholder, content not filled; title preserved as backlog",
+      "_legacy_module": "EVB"
     },
     {
       "id": "EVB_006",
       "title": "生物制剂减量策略在AS中的可行性",
-      "module": "EVB",
-      "module_name": "循证证据",
+      "module": "F",
+      "module_name": "循证决策",
       "year": "",
       "evidence_level": "2B（回顾性队列研究）",
       "source": "Ye L, Zhou L, Bian J, et al. Disease Activity-Guided Stepwise Tapering but Not Discontinuation of Biologics Is a Feasible Therapeutic Strategy for Patients with Ankylosing Spondylitis: Real-World Evidence. Adv Ther. 2022;39(3):1393-1402.",
       "professional_content": "",
       "patient_content": "",
-      "search_text": "生物制剂减量策略在AS中的可行性  "
+      "search_text": "生物制剂减量策略在AS中的可行性  ",
+      "_deprecated": true,
+      "_deprecation_reason": "v1.0 placeholder, content not filled; title preserved as backlog",
+      "_legacy_module": "EVB"
     },
     {
       "id": "EVB_007",
       "title": "ASAS/EULAR 2022中轴型SpA管理推荐",
-      "module": "EVB",
-      "module_name": "循证证据",
+      "module": "F",
+      "module_name": "循证决策",
       "year": "",
       "evidence_level": "1A（基于系统文献综述的专家共识）",
       "source": "Ramiro S, Nikiphorou E, Sepriano A, et al. ASAS-EULAR recommendations for the management of axial spondyloarthritis: 2022 update. Ann Rheum Dis. 2023;82(1):19-34.",
       "professional_content": "",
       "patient_content": "",
-      "search_text": "ASAS/EULAR 2022中轴型SpA管理推荐  "
+      "search_text": "ASAS/EULAR 2022中轴型SpA管理推荐  ",
+      "_deprecated": true,
+      "_deprecation_reason": "v1.0 placeholder, content not filled; title preserved as backlog",
+      "_legacy_module": "EVB"
     },
     {
       "id": "PSY_001",
@@ -705,7 +740,9 @@
       "source": "Kroenke K, Spitzer RL, Williams JB. The PHQ-9: validity of a brief depression severity measure. J Gen Intern Med. 2001;16(9):606-613.",
       "professional_content": "",
       "patient_content": "",
-      "search_text": "PHQ-9患者健康问卷抑郁量表  "
+      "search_text": "PHQ-9患者健康问卷抑郁量表  ",
+      "_deprecated": true,
+      "_deprecation_reason": "v1.0 placeholder, content not filled; title preserved as backlog"
     },
     {
       "id": "PSY_002",
@@ -717,7 +754,9 @@
       "source": "Park JY, Howren AM, Zusman EZ, et al. The incidence of depression and anxiety in patients with ankylosing spondylitis: a systematic review and meta-analysis. BMC Rheumatol. 2020;4:12.",
       "professional_content": "",
       "patient_content": "",
-      "search_text": "AS患者抑郁和焦虑患病率的系统综述与Meta分析  "
+      "search_text": "AS患者抑郁和焦虑患病率的系统综述与Meta分析  ",
+      "_deprecated": true,
+      "_deprecation_reason": "v1.0 placeholder, content not filled; title preserved as backlog"
     },
     {
       "id": "PSY_003",
@@ -729,91 +768,116 @@
       "source": "Hyphantis T, Kotsis K, Tsifetaki N, et al. The relationship between depressive symptoms, illness perceptions and quality of life in ankylosing spondylitis in comparison to rheumatoid arthritis. Clin Rheumatol. 2013;32(5):635-644.",
       "professional_content": "",
       "patient_content": "",
-      "search_text": "PHQ-9在AS患者中的应用  "
+      "search_text": "PHQ-9在AS患者中的应用  ",
+      "_deprecated": true,
+      "_deprecation_reason": "v1.0 placeholder, content not filled; title preserved as backlog"
     },
     {
       "id": "SP_001",
       "title": "EULAR妊娠期和哺乳期抗风湿药物使用要点",
-      "module": "SP",
+      "module": "I",
       "module_name": "特殊人群",
       "year": "",
       "evidence_level": "",
       "source": "Götestam Skorpen C, Hoeltzenbein M, Tincani A, et al. The EULAR points to consider for use of antirheumatic drugs before pregnancy, and during pregnancy and lactation. Ann Rheum Dis. 2016;75(5):795-810.",
       "professional_content": "",
       "patient_content": "",
-      "search_text": "EULAR妊娠期和哺乳期抗风湿药物使用要点  "
+      "search_text": "EULAR妊娠期和哺乳期抗风湿药物使用要点  ",
+      "_deprecated": true,
+      "_deprecation_reason": "v1.0 placeholder, content not filled; title preserved as backlog",
+      "_legacy_module": "SP"
     },
     {
       "id": "SP_002",
       "title": "甲氨蝶呤致畸性综述",
-      "module": "SP",
+      "module": "I",
       "module_name": "特殊人群",
       "year": "",
       "evidence_level": "",
       "source": "Hyoun SC, Običan SG, Scialli AR. Teratogen update: methotrexate. Birth Defects Res A Clin Mol Teratol. 2012;94(4):187-207.",
       "professional_content": "",
       "patient_content": "",
-      "search_text": "甲氨蝶呤致畸性综述  "
+      "search_text": "甲氨蝶呤致畸性综述  ",
+      "_deprecated": true,
+      "_deprecation_reason": "v1.0 placeholder, content not filled; title preserved as backlog",
+      "_legacy_module": "SP"
     },
     {
       "id": "SP_003",
       "title": "自身免疫性风湿病成人患者疫苗接种EULAR推荐（2019更新）",
-      "module": "SP",
+      "module": "I",
       "module_name": "特殊人群",
       "year": "",
       "evidence_level": "",
       "source": "Furer V, Rondaan C, Heijstek MW, et al. 2019 update of EULAR recommendations for vaccination in adult patients with autoimmune inflammatory rheumatic diseases. Ann Rheum Dis. 2020;79(1):39-52.",
       "professional_content": "",
       "patient_content": "",
-      "search_text": "自身免疫性风湿病成人患者疫苗接种EULAR推荐（2019更新）  "
+      "search_text": "自身免疫性风湿病成人患者疫苗接种EULAR推荐（2019更新）  ",
+      "_deprecated": true,
+      "_deprecation_reason": "v1.0 placeholder, content not filled; title preserved as backlog",
+      "_legacy_module": "SP"
     },
     {
       "id": "SP_004",
       "title": "生物制剂使用前潜伏结核感染管理指导",
-      "module": "SP",
+      "module": "I",
       "module_name": "特殊人群",
       "year": "",
       "evidence_level": "",
       "source": "Cantini F, Nannini C, Niccoli L, et al. Guidance for the management of patients with latent tuberculosis infection requiring biologic therapy in rheumatology and dermatology clinical practice. Autoimmun Rev. 2015;14(6):503-509.",
       "professional_content": "",
       "patient_content": "",
-      "search_text": "生物制剂使用前潜伏结核感染管理指导  "
+      "search_text": "生物制剂使用前潜伏结核感染管理指导  ",
+      "_deprecated": true,
+      "_deprecation_reason": "v1.0 placeholder, content not filled; title preserved as backlog",
+      "_legacy_module": "SP"
     },
     {
       "id": "DS_001",
       "title": "IL-17抑制剂与IBD风险",
-      "module": "DS",
-      "module_name": "药物安全",
+      "module": "F",
+      "module_name": "循证决策",
       "year": "",
       "evidence_level": "",
       "source": "根据ASAS/EULAR 2022系统文献综述（Webers C et al., Ann Rheum Dis 2023;82:19-34，PMID 36270657）中引用的安全性数据",
       "professional_content": "",
       "patient_content": "",
-      "search_text": "IL-17抑制剂与IBD风险  "
+      "search_text": "IL-17抑制剂与IBD风险  ",
+      "_deprecated": true,
+      "_deprecation_reason": "v1.0 placeholder, content not filled; title preserved as backlog",
+      "_legacy_module": "DS"
     },
     {
       "id": "DS_002",
       "title": "抗TNF治疗期间结核感染风险管理",
-      "module": "DS",
-      "module_name": "药物安全",
+      "module": "F",
+      "module_name": "循证决策",
       "year": "",
       "evidence_level": "",
       "source": "Cantini F et al. Guidance for the management of patients with latent tuberculosis infection requiring biologic therapy in rheumatology and dermatology clinical practice. Autoimmun Rev. 2015;14(6):503-509.",
       "professional_content": "",
       "patient_content": "",
-      "search_text": "抗TNF治疗期间结核感染风险管理  "
+      "search_text": "抗TNF治疗期间结核感染风险管理  ",
+      "_deprecated": true,
+      "_deprecation_reason": "v1.0 placeholder, content not filled; title preserved as backlog",
+      "_legacy_module": "DS"
     },
     {
       "id": "DS_003",
       "title": "生物制剂使用期间发热（>38.5°C）的紧急处理",
-      "module": "DS",
-      "module_name": "药物安全",
+      "module": "F",
+      "module_name": "循证决策",
       "year": "",
       "evidence_level": "",
       "source": "ASAS/EULAR 2022推荐（Ramiro S et al., Ann Rheum Dis 2023;82:19-34，PMID 36270658）",
       "professional_content": "",
       "patient_content": "",
-      "search_text": "生物制剂使用期间发热（>38.5°C）的紧急处理  "
+      "search_text": "生物制剂使用期间发热（>38.5°C）的紧急处理  ",
+      "_deprecated": true,
+      "_deprecation_reason": "v1.0 placeholder, content not filled; title preserved as backlog",
+      "_legacy_module": "DS"
     }
-  ]
+  ],
+  "_kb_version": "1.0.1",
+  "_schema_version": "1"
 }
