@@ -1,0 +1,101 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/LISI-shaui/ankylosing-spondylitis-skill/schemas/kb_entry.schema.json",
+  "title": "AS Skill KB Entry",
+  "description": "Schema for entries in data/clinical_kb.json, data/tcm_kb.json, etc. v1 of KB schema — additive backward-compatible changes only.",
+  "type": "object",
+  "required": [
+    "id",
+    "title",
+    "module",
+    "module_name",
+    "system",
+    "evidence_level",
+    "source",
+    "professional_content",
+    "patient_content",
+    "search_text"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^(DX|TX|RX|EX|PT|FU|EDU|tcm|int|west)[-_][A-Za-z0-9]+$",
+      "description": "Unique entry ID. Prefixes: DX_/TX_/RX_/EX_/PT_/FU_/EDU_ (legacy western), west-/tcm-/int- (v1.1+)"
+    },
+    "title": { "type": "string", "minLength": 4 },
+    "module": {
+      "type": "string",
+      "enum": ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"],
+      "description": "意图模块代码，见 intent_codebook.json"
+    },
+    "module_name": { "type": "string" },
+    "dimension": {
+      "type": "string",
+      "enum": ["a", "b", "c", "d"],
+      "description": "意图维度，可选；不填默认 'd' (决策支持)"
+    },
+    "system": {
+      "type": "string",
+      "enum": ["western", "tcm", "integrated"],
+      "description": "医学体系来源：western=西医 / tcm=中医 / integrated=中西医结合"
+    },
+    "year": { "type": ["string", "number"] },
+    "evidence_level": {
+      "type": "string",
+      "description": "自由文本，如 '分类标准' / '专家共识' / 'systematic review'"
+    },
+    "evidence_grade": {
+      "type": "string",
+      "pattern": "^(Oxford-(1|2)[A-D]|consensus-[A-C]|expert-opinion|systematic-review|RCT|meta-analysis|none)$",
+      "description": "结构化证据等级。Oxford 1A/1B/1C/1D/2A/2B/2C/2D 或 consensus-A/B/C 或 expert-opinion / systematic-review / RCT / meta-analysis / none"
+    },
+    "source": {
+      "oneOf": [
+        { "type": "string", "minLength": 5, "description": "Legacy: 自由文本引用" },
+        {
+          "type": "object",
+          "required": ["doc_id"],
+          "properties": {
+            "doc_id": {
+              "type": "string",
+              "pattern": "^src-(western|tcm|integrated)-\\d{3}$"
+            },
+            "title": { "type": "string" },
+            "authors": { "type": "array", "items": { "type": "string" } },
+            "journal": { "type": "string" },
+            "year": { "type": ["string", "number"] },
+            "volume": { "type": "string" },
+            "section": { "type": "string" },
+            "pmid": { "type": ["string", "null"] },
+            "doi": { "type": ["string", "null"] }
+          }
+        }
+      ]
+    },
+    "professional_content": { "type": "string", "minLength": 10 },
+    "patient_content": { "type": "string", "minLength": 5 },
+    "search_text": { "type": "string", "minLength": 10 },
+    "key_points": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "cross_refs": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "added_date": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "last_review_date": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "reviewed_by": { "type": "string" }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,5 @@
+# 原始源文件（PDF / docx）不进 git
+# 抽取后的 markdown 进 sources/{western|tcm|integrated}/
+
+*
+!.gitignore
