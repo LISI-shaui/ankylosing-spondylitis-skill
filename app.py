@@ -26,6 +26,12 @@ ROOT = Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT / "scripts"))
 
 from answer import ASAgent  # noqa: E402
+from pubmed import (  # noqa: E402
+    extract_pubmed_query,
+    format_for_prompt,
+    format_for_ui,
+    search_pubmed,
+)
 
 # ─────────────────────────── 配置 ───────────────────────────
 DEMO_ENABLED = os.environ.get("DEMO_ENABLED", "true").lower() == "true"
@@ -34,6 +40,8 @@ MODEL = os.environ.get("DEEPSEEK_MODEL", "deepseek-v4-pro").strip()
 BASE_URL = os.environ.get("DEEPSEEK_BASE_URL", "https://api.deepseek.com/v1").strip()
 MAX_PER_SESSION = int(os.environ.get("MAX_PER_SESSION", "10"))
 DAILY_BUDGET_USD = float(os.environ.get("DAILY_BUDGET_USD", "5.0"))
+PUBMED_ENABLED = os.environ.get("PUBMED_ENABLED", "true").lower() == "true"
+PUBMED_MAX_RESULTS = int(os.environ.get("PUBMED_MAX_RESULTS", "3"))
 TITLE = "AS Skill Live Demo — 强直性脊柱炎专科问诊智能体"
 
 # ─────────────────────────── 全局状态 ───────────────────────────
@@ -173,41 +181,54 @@ def _call_deepseek(system_prompt: str, question: str) -> tuple[str, int]:
 
 
 def handle(question: str, audience: str, session_state: dict):
-    """主回调。返回 (answer, intent, kb, rules, attribution, prompt, new_state)"""
+    """主回调。返回 (answer, intent, kb, rules, attribution, pubmed, prompt, new_state)"""
     state = session_state or {"count": 0}
 
     if not DEMO_ENABLED:
         msg = "🚧 **Demo 暂时关闭** —— 维护中或展示结束，请稍后再试或联系作者。"
-        return msg, "", "", "", "", "", state
+        return msg, "", "", "", "", "", "", state
 
     if not question or not question.strip():
-        return "请输入问题。", "", "", "", "", "", state
+        return "请输入问题。", "", "", "", "", "", "", state
 
     if state["count"] >= MAX_PER_SESSION:
         msg = (f"⚠️ 本次会话已达 **{MAX_PER_SESSION} 次提问上限**。"
                f" 刷新页面可重新开始（防滥用机制，保证演示稳定）。")
-        return msg, "", "", "", "", "", state
+        return msg, "", "", "", "", "", "", state
 
     blocked, cost_usd = _check_budget()
     if blocked:
         msg = (f"💰 今日演示预算已用完（≈${cost_usd:.2f} / ${DAILY_BUDGET_USD}）。"
                " 明天 0:00 自动重置，或联系作者。")
-        return msg, "", "", "", "", "", state
+        return msg, "", "", "", "", "", "", state
 
     # ─── 跑 Skill ───
     try:
         out = agent.answer(question, audience=audience if audience != "auto" else None)
     except TypeError:
-        # 旧版 answer() 可能不接受 audience kwarg
         out = agent.answer(question)
     except Exception as e:
-        return f"⚠️ Skill 内部错误：{e}", "", "", "", "", "", state
+        return f"⚠️ Skill 内部错误：{e}", "", "", "", "", "", "", state
 
     intent_md = _md_intent(out.get("intent", {}))
     kb_md = _md_kb(out.get("retrieved_kb", []))
     rules_md = _md_rules(out.get("triggered_rules", []))
     att_md = _md_attribution(out.get("attribution_summary", {}))
     prompt_text = out.get("system_prompt", "")
+
+    # ─── PubMed 实时检索（v1.1 新增）───
+    pubmed_results = []
+    pubmed_md = "_(未启用 PubMed 实时检索)_"
+    if PUBMED_ENABLED:
+        pubmed_query = extract_pubmed_query(question, out.get("intent"))
+        pubmed_results = search_pubmed(pubmed_query, max_results=PUBMED_MAX_RESULTS, recent_years=3)
+        pubmed_md = (
+            f"🔍 **检索词**：`{pubmed_query}`\n\n"
+            + format_for_ui(pubmed_results)
+        )
+        # 把 PubMed 结果拼到 system prompt 末尾，让 DeepSeek 据此优化回答
+        if pubmed_results:
+            prompt_text = prompt_text + "\n\n" + format_for_prompt(pubmed_results)
 
     # ─── 调 DeepSeek 端到端 ───
     answer_text, tokens = _call_deepseek(prompt_text, question)
@@ -219,8 +240,10 @@ def handle(question: str, audience: str, session_state: dict):
 
     footer = (f"\n\n---\n_使用次数：{state['count']}/{MAX_PER_SESSION} · "
               f"今日总调用：{_global['queries_today']} · "
-              f"模型：{MODEL}_")
-    return answer_text + footer, intent_md, kb_md, rules_md, att_md, prompt_text, state
+              f"模型：{MODEL} · "
+              f"PubMed 实时检索：{len(pubmed_results)} 篇_")
+    return (answer_text + footer, intent_md, kb_md, rules_md,
+            att_md, pubmed_md, prompt_text, state)
 
 
 # ─────────────────────────── 示例题 ───────────────────────────
@@ -247,7 +270,7 @@ HEADER = f"""
 让任意通用 LLM 在强直性脊柱炎（AS）专科题上 **答得像医生** — 单题 ¥0.02，3-5 秒响应，无需 GPU。
 基于 46 题正式评测，相对裸 LLM 提升 **+50%**（Wilcoxon p < 1e-8，effect size r = 0.87）。
 
-**架构**：意图识别 + TF-IDF 检索（67 西医 + 17 中西医结合 KB）+ 47 条质控规则 + 三层归因（SHAP/LIME/SPA）→ 生成 system prompt → 喂给 **DeepSeek V4 Pro**
+**架构**：意图识别 + TF-IDF 检索（67 西医 + 17 中西医结合 KB）+ 47 条质控规则 + 三层归因（SHAP/LIME/SPA）**+ 📡 PubMed 实时检索（最近 3 年最新文献）** → 生成 system prompt → 喂给 **DeepSeek V4 Pro**
 
 🔗 [GitHub 仓库](https://github.com/LISI-shaui/ankylosing-spondylitis-skill) ·
 📄 [v1.0.0 Release Notes](https://github.com/LISI-shaui/ankylosing-spondylitis-skill/blob/main/RELEASE.md)
@@ -296,6 +319,10 @@ with gr.Blocks(title=TITLE) as demo:
                     rules_out = gr.Markdown()
                 with gr.Tab("🔬 三层归因"):
                     att_out = gr.Markdown()
+                with gr.Tab("📡 PubMed 实时检索"):
+                    pubmed_out = gr.Markdown(
+                        value="_(提问后这里显示从 PubMed 拉到的最近 3 年文献)_"
+                    )
                 with gr.Tab("📜 完整 system prompt"):
                     prompt_out = gr.Textbox(
                         label="（这是注入到 DeepSeek 的 system prompt）",
@@ -306,7 +333,8 @@ with gr.Blocks(title=TITLE) as demo:
     submit.click(
         handle,
         inputs=[question, audience, session_state],
-        outputs=[answer_out, intent_out, kb_out, rules_out, att_out, prompt_out, session_state],
+        outputs=[answer_out, intent_out, kb_out, rules_out, att_out,
+                 pubmed_out, prompt_out, session_state],
     )
 
     gr.Markdown(
