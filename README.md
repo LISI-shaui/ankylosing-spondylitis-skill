@@ -8,8 +8,23 @@
 ![License](https://img.shields.io/badge/license-MIT-blue)
 ![Python](https://img.shields.io/badge/python-3.8+-blue)
 ![Status](https://img.shields.io/badge/status-research-orange)
+[![HF Spaces](https://img.shields.io/badge/🤗_Try_Live-Hugging_Face-yellow)](https://huggingface.co/spaces/LISI-shaui/as-skill-demo)
 
-> 📰 **[v1.0.0 Release Notes →](RELEASE.md)**  ·  🤝 **[贡献指南 →](CONTRIBUTING.md)**  ·  📜 **[行为准则 →](CODE_OF_CONDUCT.md)**
+> 📰 **[v1.0.0 Release Notes →](RELEASE.md)**  ·  🚀 **[Live Demo →](https://huggingface.co/spaces/LISI-shaui/as-skill-demo)**  ·  📦 **[部署指南 →](docs/DEPLOY.md)**  ·  🤝 **[贡献指南 →](CONTRIBUTING.md)**
+
+---
+
+## 🚀 在线体验（医创赛展示版）
+
+| 方式 | 链接 |
+|---|---|
+| 网页 | https://huggingface.co/spaces/LISI-shaui/as-skill-demo |
+| 扫码 | ![QR](docs/qr-demo.png) |
+| 模型 | DeepSeek v4 + AS Skill 三层归因增强 |
+
+> 演示由作者临时开放，**点击网页即用**，单会话最多 10 次提问；展示结束后可能临时关闭。
+> 演示后端架构与本仓库 `app.py` 完全一致，源码可审计。
+> ⚠️ 演示输出**不构成医疗建议**，仅展示方法学。
 
 ---
 
@@ -42,12 +57,20 @@
 ## 📦 安装
 
 ```bash
-git clone <你的仓库地址>
+git clone https://github.com/LISI-shaui/ankylosing-spondylitis-skill.git
 cd ankylosing-spondylitis-skill
 pip install -r requirements.txt
 ```
 
 依赖**只有 jieba**（中文分词），无 PyTorch / 无 BERT / 无 FAISS。
+
+跑网页 demo：
+
+```bash
+pip install -r requirements-app.txt
+export DEEPSEEK_API_KEY=sk-...
+python app.py        # 浏览器打开 http://localhost:7860
+```
 
 ---
 
