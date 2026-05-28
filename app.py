@@ -1,17 +1,14 @@
-"""AS Skill — Hugging Face Spaces 网页 Demo（Gradio）
+"""AS Skill — 网页 Demo（Gradio）
 
-部署指南：见 docs/DEPLOY.md
-环境变量（在 HF Space → Settings → Variables and secrets 配置）：
-    DEEPSEEK_API_KEY    [Secret]  — DeepSeek API key (sk-...)
-    DEEPSEEK_MODEL      [Var]     — 默认 'deepseek-v4-pro'
-    DEEPSEEK_BASE_URL   [Var]     — 默认 'https://api.deepseek.com/v1'
-    DEMO_ENABLED        [Var]     — 'true'/'false' 一键开关（默认 true）
-    MAX_PER_SESSION     [Var]     — 单会话最大提问次数（默认 10）
-    DAILY_BUDGET_USD    [Var]     — 单日预算上限（默认 5 美元，防 DeepSeek 余额爆光）
-
-本地运行：
-    pip install -r requirements-app.txt
-    python app.py
+环境变量：
+    DEEPSEEK_API_KEY    DeepSeek API key (sk-...)
+    DEEPSEEK_MODEL      默认 'deepseek-v4-pro'
+    DEEPSEEK_BASE_URL   默认 'https://api.deepseek.com/v1'
+    DEMO_ENABLED        'true'/'false' 一键开关
+    MAX_PER_SESSION     单会话最大提问次数（默认 10）
+    DAILY_BUDGET_USD    单日预算上限（默认 5 美元）
+    PUBMED_ENABLED      'true'/'false' PubMed 实时检索开关
+    PUBMED_MAX_RESULTS  PubMed 每次拉几篇（默认 3）
 """
 import hashlib
 import os
