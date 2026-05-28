@@ -3,7 +3,7 @@
 部署指南：见 docs/DEPLOY.md
 环境变量（在 HF Space → Settings → Variables and secrets 配置）：
     DEEPSEEK_API_KEY    [Secret]  — DeepSeek API key (sk-...)
-    DEEPSEEK_MODEL      [Var]     — 默认 'deepseek-chat'
+    DEEPSEEK_MODEL      [Var]     — 默认 'deepseek-v4-pro'
     DEEPSEEK_BASE_URL   [Var]     — 默认 'https://api.deepseek.com/v1'
     DEMO_ENABLED        [Var]     — 'true'/'false' 一键开关（默认 true）
     MAX_PER_SESSION     [Var]     — 单会话最大提问次数（默认 10）
@@ -30,7 +30,7 @@ from answer import ASAgent  # noqa: E402
 # ─────────────────────────── 配置 ───────────────────────────
 DEMO_ENABLED = os.environ.get("DEMO_ENABLED", "true").lower() == "true"
 API_KEY = os.environ.get("DEEPSEEK_API_KEY", "").strip()
-MODEL = os.environ.get("DEEPSEEK_MODEL", "deepseek-chat").strip()
+MODEL = os.environ.get("DEEPSEEK_MODEL", "deepseek-v4-pro").strip()
 BASE_URL = os.environ.get("DEEPSEEK_BASE_URL", "https://api.deepseek.com/v1").strip()
 MAX_PER_SESSION = int(os.environ.get("MAX_PER_SESSION", "10"))
 DAILY_BUDGET_USD = float(os.environ.get("DAILY_BUDGET_USD", "5.0"))
@@ -247,7 +247,7 @@ HEADER = f"""
 让任意通用 LLM 在强直性脊柱炎（AS）专科题上 **答得像医生** — 单题 ¥0.02，3-5 秒响应，无需 GPU。
 基于 46 题正式评测，相对裸 LLM 提升 **+50%**（Wilcoxon p < 1e-8，effect size r = 0.87）。
 
-**架构**：意图识别 + TF-IDF 检索（67 西医 + 17 中西医结合 KB）+ 47 条质控规则 + 三层归因（SHAP/LIME/SPA）→ 生成 system prompt → 喂给 DeepSeek v4
+**架构**：意图识别 + TF-IDF 检索（67 西医 + 17 中西医结合 KB）+ 47 条质控规则 + 三层归因（SHAP/LIME/SPA）→ 生成 system prompt → 喂给 **DeepSeek V4 Pro**
 
 🔗 [GitHub 仓库](https://github.com/LISI-shaui/ankylosing-spondylitis-skill) ·
 📄 [v1.0.0 Release Notes](https://github.com/LISI-shaui/ankylosing-spondylitis-skill/blob/main/RELEASE.md)

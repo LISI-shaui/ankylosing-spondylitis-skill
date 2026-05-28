@@ -20,7 +20,7 @@
 |---|---|
 | 网页 | https://huggingface.co/spaces/LISI-shaui/as-skill-demo |
 | 扫码 | ![QR](docs/qr-demo.png) |
-| 模型 | DeepSeek v4 + AS Skill 三层归因增强 |
+| 模型 | DeepSeek V4 Pro + AS Skill 三层归因增强 |
 
 > 演示由作者临时开放，**点击网页即用**，单会话最多 10 次提问；展示结束后可能临时关闭。
 > 演示后端架构与本仓库 `app.py` 完全一致，源码可审计。

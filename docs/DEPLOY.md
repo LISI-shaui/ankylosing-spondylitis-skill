@@ -33,7 +33,7 @@
 - 打开 https://platform.deepseek.com → 注册 → 充值（最少 ¥10，够本次 demo 跑几千次）
 - 创建 API key，复制保存 `sk-...`
 
-> 💡 DeepSeek v4 / `deepseek-chat` 的定价是输入 ¥1/M tokens、输出 ¥2/M tokens。本 demo 单次回答约 2000 tokens，估算约 **¥0.005/次**。¥10 ≈ 2000 次。
+> 💡 DeepSeek V4 Pro / `deepseek-v4-pro` 的定价以 DeepSeek 平台公示为准（V4 Pro 比 `deepseek-chat` 稍贵但回答质量更高）。本 demo 单次回答约 2000 tokens，估算约 **¥0.01-0.02/次**。¥20 余额够展示一整天的访问量。
 
 ---
 
@@ -110,7 +110,7 @@ push 完毕，HF 会自动开始 build（看 Space 页面的 "Building" 状态�
 | 名字 | 类型 | 值 | 说明 |
 |---|---|---|---|
 | `DEEPSEEK_API_KEY` | **Secret** | `sk-...你的 key` | ⚠️ 一定选 Secret 不选 Variable，否则访客能看见 |
-| `DEEPSEEK_MODEL` | Variable | `deepseek-chat` | 或 `deepseek-reasoner`（R1 推理）/ `deepseek-v3` 等 |
+| `DEEPSEEK_MODEL` | Variable | `deepseek-v4-pro` | ⚠️ 请去 [DeepSeek 平台](https://platform.deepseek.com/api-docs/zh-cn/quick_start/pricing) 核对当前可用的精确 model ID；如不可用回退到 `deepseek-chat` 或 `deepseek-reasoner` |
 | `DEEPSEEK_BASE_URL` | Variable | `https://api.deepseek.com/v1` | 默认值，不填也行 |
 | `DEMO_ENABLED` | Variable | `true` | ⭐ **一键开关**：改成 `false` 立刻下线 |
 | `MAX_PER_SESSION` | Variable | `10` | 单会话提问上限 |
@@ -181,7 +181,8 @@ python scripts/gen_qr.py https://huggingface.co/spaces/LISI-shaui/as-skill-demo
 | Build 成功但页面打不开 | 没找到 `app.py` 或端口错 | 确认 `app.py` 在仓库根目录；HF 自动用 7860 端口 |
 | 回答里始终显示"未配置 API key" | Secret 没生效 | Step 3 重检；Secret 名必须是 `DEEPSEEK_API_KEY`（注意大小写） |
 | 回答里说 401 / 403 | API key 过期或没充值 | DeepSeek 平台检查 key 和余额 |
-| 回答里说超时 | DeepSeek 偶尔慢 | 重试；若持续，把 `MODEL` 换成 `deepseek-chat`（比 reasoner 快） |
+| 回答里说超时 | DeepSeek 偶尔慢 | 重试；若持续，把 `DEEPSEEK_MODEL` 换成 `deepseek-chat`（比 V4 Pro / reasoner 快但质量略低） |
+| 报错 model not found | `deepseek-v4-pro` 这个 ID 在你账号里不可用 | 去 DeepSeek 平台看支持的 model ID，把 `DEEPSEEK_MODEL` 改成对应名字 |
 | 中文乱码 | HF Space 默认 UTF-8，本身不会 | 检查浏览器编码 |
 | 国内访问超慢 | 校园网/某些 ISP 限速 | 换 4G/5G 网络或个人热点；展示时备份截屏 |
 
