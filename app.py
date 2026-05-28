@@ -17,7 +17,11 @@ import time
 from pathlib import Path
 from threading import Lock
 
-import gradio as gr
+# 必须在 import gradio 之前设置，确保 HF Spaces / ModelScope 上能对外访问
+os.environ.setdefault("GRADIO_SERVER_NAME", "0.0.0.0")
+os.environ.setdefault("GRADIO_SERVER_PORT", "7860")
+
+import gradio as gr  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT / "scripts"))
@@ -340,10 +344,11 @@ with gr.Blocks(title=TITLE) as demo:
 
 
 if __name__ == "__main__":
+    # 端口优先级：PORT > GRADIO_SERVER_PORT > 7860
+    port = int(os.environ.get("PORT") or os.environ.get("GRADIO_SERVER_PORT") or 7860)
     demo.queue(default_concurrency_limit=3).launch(
         server_name="0.0.0.0",
-        server_port=int(os.environ.get("PORT", "7860")),
+        server_port=port,
         share=False,
         show_error=True,
-        theme=gr.themes.Soft(),
     )
